@@ -5,16 +5,7 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  validates :firstname, presence: true
-  validates :lastname, presence: true
-  validates :username, presence: true
-  validates :year, presence: true
-  validates :major, presence: true
-  validates :linkedin, presence: true
-  validates :facebook, presence: true
-
-  validates :username, uniqueness: true
-
-
+  validates :firstname, :lastname, :username, :year, :major, :linkedin, :facebook, :presence => true
+  validates :username, :uniqueness => true
 
 end

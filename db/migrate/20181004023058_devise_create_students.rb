@@ -12,7 +12,7 @@ class DeviseCreateStudents < ActiveRecord::Migration[5.2]
       t.datetime :reset_password_sent_at
 
       ## Rememberable
-      t.datetime :remember_created_at
+      # t.datetime :remember_created_at
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -39,7 +39,7 @@ class DeviseCreateStudents < ActiveRecord::Migration[5.2]
 
     add_index :students, :email,                unique: true
     add_index :students, :reset_password_token, unique: true
-    # add_index :students, :confirmation_token,   unique: true
+    add_index :students, :confirmation_token,   unique: true
     # add_index :students, :unlock_token,         unique: true
   end
 end
