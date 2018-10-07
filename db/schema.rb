@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_10_04_023545) do
+=======
+ActiveRecord::Schema.define(version: 2018_10_04_023249) do
+>>>>>>> a037513212dba55e825cff121d00861d2f4fa2fa
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "students", force: :cascade do |t|
+=======
+  create_table "clubs", force: :cascade do |t|
+>>>>>>> a037513212dba55e825cff121d00861d2f4fa2fa
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+<<<<<<< HEAD
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -34,6 +43,15 @@ ActiveRecord::Schema.define(version: 2018_10_04_023545) do
     t.string "facebook"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "description"
+    t.string "website_url"
+    t.index ["email"], name: "index_clubs_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_clubs_on_reset_password_token", unique: true
+>>>>>>> a037513212dba55e825cff121d00861d2f4fa2fa
   end
 
 end
