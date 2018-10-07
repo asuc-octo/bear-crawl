@@ -8,4 +8,6 @@ class Student < ApplicationRecord
   validates :firstname, :lastname, :username, :year, :major, :linkedin, :facebook, :presence => true
   validates :username, :uniqueness => true
 
+  
+  has_many :interests, as: :interestable, dependent: :destroy
 end
