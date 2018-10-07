@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_04_023545) do
+ActiveRecord::Schema.define(version: 2018_10_07_023134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2018_10_04_023545) do
     t.index ["confirmation_token"], name: "index_clubs_on_confirmation_token", unique: true
     t.index ["email"], name: "index_clubs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clubs_on_reset_password_token", unique: true
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "club_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_memberships_on_club_id"
+    t.index ["student_id"], name: "index_memberships_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
