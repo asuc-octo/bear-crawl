@@ -11,4 +11,6 @@ class Club < ApplicationRecord
   validates :description, :website_url, :presence => true
   validates :name, :presence => true, :uniqueness => true
 
+  has_many :interests, as: :interestable, dependent: :destroy
+
 end
