@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_10_04_023249) do
-=======
-ActiveRecord::Schema.define(version: 2018_10_07_183353) do
->>>>>>> 94da5f3e193818b02f4cb07b3f10a564a87e0eec
+
+ActiveRecord::Schema.define(version: 2018_10_08_024425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,29 +21,35 @@ ActiveRecord::Schema.define(version: 2018_10_07_183353) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-<<<<<<< HEAD
-    t.datetime "remember_created_at"
-=======
+
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
->>>>>>> 94da5f3e193818b02f4cb07b3f10a564a87e0eec
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "description"
     t.string "website_url"
-<<<<<<< HEAD
-=======
+
     t.index ["confirmation_token"], name: "index_clubs_on_confirmation_token", unique: true
->>>>>>> 94da5f3e193818b02f4cb07b3f10a564a87e0eec
     t.index ["email"], name: "index_clubs_on_email", unique: true
     t.index ["reset_password_token"], name: "index_clubs_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
-=======
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "club_id"
+    t.string "title"
+    t.date "start_date"
+    t.date "end_date"
+    t.time "start_time"
+    t.time "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_events_on_club_id"
+  end
+
   create_table "interests", force: :cascade do |t|
     t.integer "interestable_id", null: false
     t.string "interestable_type", null: false
@@ -96,6 +99,6 @@ ActiveRecord::Schema.define(version: 2018_10_07_183353) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "clubs"
   add_foreign_key "keywords", "clubs"
->>>>>>> 94da5f3e193818b02f4cb07b3f10a564a87e0eec
 end
