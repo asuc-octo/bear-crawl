@@ -47,7 +47,8 @@ ActiveRecord::Schema.define(version: 2018_10_07_183311) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "club_id"
-    t.index ["club_id"], name: "index_keywords_on_club_id"
+    t.string "label"
+    t.index ["club_id", "label"], name: "index_keywords_on_club_id_and_label", unique: true
   end
 
   create_table "memberships", force: :cascade do |t|
