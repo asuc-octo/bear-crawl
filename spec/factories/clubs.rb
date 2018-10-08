@@ -3,7 +3,7 @@ FactoryBot.define do
     password {'password'}
     password_confirmation {'password'}
     
-    website {"https://www.berkeley.edu"}
+    website_url {"https://www.berkeley.edu"}
     description {"Example Club"}
 
     sequence(:name) { |n| "democlub#{n}" }
