@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :event do
-    club { nil }
+    club
     title { "MyString" }
-    start_date { "2018-10-07" }
-    end_date { "2018-10-07" }
-    start_time { "2018-10-07 19:44:25" }
-    end_time { "2018-10-07 19:44:25" }
+    start_date { Date.today }
+    end_date { Date.today + 1.day }
+    start_time { Time.now }
+    end_time { Time.now + 1.hour }
   end
 end
