@@ -34,15 +34,6 @@ ActiveRecord::Schema.define(version: 2018_10_07_023134) do
     t.index ["reset_password_token"], name: "index_clubs_on_reset_password_token", unique: true
   end
 
-  create_table "memberships", force: :cascade do |t|
-    t.bigint "student_id", null: false
-    t.bigint "club_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["club_id"], name: "index_memberships_on_club_id"
-    t.index ["student_id"], name: "index_memberships_on_student_id"
-  end
-
   create_table "interests", force: :cascade do |t|
     t.integer "interestable_id", null: false
     t.string "interestable_type", null: false
@@ -50,6 +41,16 @@ ActiveRecord::Schema.define(version: 2018_10_07_023134) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["interestable_id", "interestable_type"], name: "index_interests_on_interestable_id_and_interestable_type"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "club_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_memberships_on_club_id"
+    t.index ["student_id", "club_id"], name: "index_memberships_on_student_id_and_club_id", unique: true
+    t.index ["student_id"], name: "index_memberships_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
