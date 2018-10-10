@@ -21,7 +21,7 @@ export default class RegisterFooter extends React.Component {
 
 	render() {
 		return (
-		<div>
+		<div className = "wordSpacer">
 			<div className = 'forgotRegister'>
 				<a href = '/forgot' className = "registerLinkForgot" onClick = {this.slideUpForgot}> Forgot? </a>
 			<div className = 'registerContainer'>

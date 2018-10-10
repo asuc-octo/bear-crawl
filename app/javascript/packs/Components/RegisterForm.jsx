@@ -10,8 +10,13 @@ export default class RegisterForm extends React.Component {
 		super(props);
 		this.state = {
 			name: "", 
-			password: ""
+			password: "", 
+			slide: false,
+			transform: 'none'
 		}
+		this.handlePassword = this.handlePassword.bind(this);
+		this.handleUsername = this.handleUsername.bind(this);
+		this.handleRegister = this.handleRegister.bind(this);
 	}
 
 	handlePassword = (ev, val) => {
@@ -25,14 +30,20 @@ export default class RegisterForm extends React.Component {
 	}
 
 	handleRegister = (ev, val) => {
+		ev.persist();
 		this.props.onSubmit && this.props.onSubmit(this.state.name, this.state.password)
 	}
 
 	render() {
 		return (
 		<div>
+			<td>
+				<i className='fas fa-user'></i>
+			</td>
 			<h1 className = 'registerText'>Register</h1>
-			<div className = 'container'>
+			<p className = 'smallRegisterText'>For your security, passwords
+			must include an upper case letter and at least one number. </p> 
+			<div className = 'container' />
 		  		<div className = 'contained'>
 		  			<form method = '' action = '' className = 'registerForm'>
 		  				<div className = 'group'>
@@ -41,15 +52,14 @@ export default class RegisterForm extends React.Component {
 							<br />
 							<input onChange = {this.handlePassword} name = 'Password' type = 'text' placeholder = 'Password' className = 'passwordRegister' />
 							<hr className = 'registerLine' />
-							<div onClick = {this.handleRegister} className = 'signinRegister'> 
-								<input name = 'Register' type='submit' value='     Register     ' className = 'inputSigninRegister' />
+							<div className = 'signinRegister'> 
+								<input type = 'submit' name = 'Register' onClick = {this.handleNext} value='     Next     ' className = 'inputSigninRegister' />
 							</div>
 							<RegisterFooter />
 						</div>
 					</form>
 				</div>
 			</div>
-		</div>
 	)};
 }
 

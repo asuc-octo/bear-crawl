@@ -10,18 +10,23 @@ export default class Register extends React.Component {
 		super(props);
 		this.state = {
 			success: false,
+			slide: true,
 		}
+		this.newUser = this.newUser.bind(this)
 	}
 
-	newUser(name, password) {
+	newUser(name, password, success) {
 		//make request here
+
 		this.setState(success:true);
+		this.setState(slide: true);
+		return;
 	}
 
 	render() {
 		return (
 		<div>
-	  		<RegisterForm name = 'Username' password = 'Password' onSubmit = {this.newUser} />
+	  		<RegisterForm name = 'Username' password = 'Password' onSubmit = {this.newUser.bind(this)} />
 		</div> 
 	)};
 }

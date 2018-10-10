@@ -44,13 +44,46 @@ textarea:focus, input:focus {
     background-size: cover;
  }
 
+ td {
+    text-align: center;
+    margin: auto;
+    display:block;
+}
+
+ .fas {
+ 	display: inline-block;
+ 	font-size: 40px;
+ 	color:white;
+ 	margin-top: 35px;
+ 	padding:20px;
+ 	border-radius: 50%;
+ 	width: 40px;
+ 	height: 40px;
+ 	border: 1px white solid;
+ }
+
+ .whiteContainer {
+ 	background-color: rgba(18, 18, 18, 0.8);
+ 	border-radius: 10px;
+ 	margin-top:40px;
+ 	height:650px;
+ 	width:500px;
+ 	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
+ }
+
 .registerText {
 	color:white;
-	font-size:100px;
-	text-align:center;
-	margin-top: 50px;
-	font-weight:500px;
+	font-size:33px;
+	margin-left: 30px;
+	text-align:left;
+}
 
+.smallRegisterText {
+	color:gray;
+	margin-left:30px;
+	font-size:13px;
+	text-align:left;
+	width:70%;
 }
 
 .signinRegister {
@@ -60,13 +93,12 @@ textarea:focus, input:focus {
 }
 
 .registerLink {
-	margin-top:100px;
+	margin-top:80px;
 	background-color:none;
-	text-align:left;
-	color:white;
+	color:rgb(45, 75, 98);
 	text-decoration:none;
-	margin-right:40px;
-	font-size:20px;
+	display:inline-block;
+	font-size:22px;
 }
 
 .registerContainer {
@@ -76,14 +108,14 @@ textarea:focus, input:focus {
 }
 
 .registerLinkForgot {
-	margin-top:100px;
+	margin-top:80px;
 	background-color:none;
-	text-align:left;
-	color:white;
+	color:rgb(45, 75, 98);
 	text-decoration:none;
-	margin-left:25px;
-	margin-right:150px;
-	font-size:20px;
+	font-size:22px;
+	display:inline-block;
+	margin-left: 15%;
+	margin-right: 42%;
 }
 
 
@@ -96,14 +128,15 @@ textarea:focus, input:focus {
 
 .inputSigninRegister {
 	border:0;
-	background:rgb(45, 75, 98);
 	color:white;
-	height:50px;
-	width:185px;
-	font-size:24px;
-	border-radius:40px;
+	font-family: inherit;
+	background-color:rgba(238, 181, 77, 1);
+	height:45px;
+	width:120px;
+	font-size:22px;
+	border-radius:5px;
 	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
-	margin-top:50px;
+	margin-top:60px;
 }
 
 .registerForm {
@@ -112,7 +145,7 @@ textarea:focus, input:focus {
 }
 
 .registerLine {
-	width:90%;
+	width:85%;
 	color:white;
 	border-width:0.5px!important;
 }
@@ -120,7 +153,6 @@ textarea:focus, input:focus {
 
 .passwordRegister {
 	font-family:inherit;
-	color:black;
 	font-size:20px;
 	width:85%;
 	border:0;
@@ -130,9 +162,8 @@ textarea:focus, input:focus {
 
 .usernameRegister {
 	font-family:inherit;
-	color:black;
 	font-size:20px;
-	margin-top:60px;
+	margin-top:40px;
 	width:85%;
 	border:0;
 	outline:0;
@@ -160,4 +191,8 @@ textarea:focus, input:focus {
 	position:static;
 	border-radius:0px;
 	box-shadow: 10px 10px 26px 0px rgba(0,0,0,0.75);
+}
+
+.wordSpacer {
+	word-spacing: 20px;
 }

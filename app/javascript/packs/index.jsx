@@ -10,14 +10,26 @@ import Background from './../../assets/images/back.png';
 
 
 const registerStyle = {
-	backgroundImage: `url(${Background})`
+	backgroundImage: `url(${Background})`, 
+	transform: 
 }
 
+const overLay = {
+	height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+}
+
+
 const layout = (
-	<input type="text" name="club[name]"/>
-    <div className = "REGISTERCONTAINER" style = { registerStyle }>
-      <Register username="Username" password="Password" />
-    </div>
+	// <input type="text" name="club[name]"/>
+	<div className = "extraContainer" style = { overLay } >
+	    <div className = "REGISTERCONTAINER" style = { registerStyle }>
+	    	<div className = "whiteContainer">
+	      		<Register username="Username" password="Password" />
+	      	</div>
+	    </div>
+	</div>
   );
 
 document.addEventListener('DOMContentLoaded', () => {

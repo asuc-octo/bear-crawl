@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("DOMContentLoaded", function() {
+	const button = document.getElementsByClassName("registerForm");
+	button.onclick = function() {
+		console.log(12);
+	}
+})
