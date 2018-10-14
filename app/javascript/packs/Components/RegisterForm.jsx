@@ -5,13 +5,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import RegisterFooter from './RegisterFooter';
 
+
 export default class RegisterForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			name: "", 
 			password: "", 
-			slide: false,
 			transform: 'none'
 		}
 		this.handlePassword = this.handlePassword.bind(this);
@@ -26,11 +26,12 @@ export default class RegisterForm extends React.Component {
 
 	handleUsername = (ev, val) => {
 		ev.persist();
-		this.setState({name:ev.target.value}); //val vs value?
+		this.setState({name:ev.target.val}); 
 	}
 
 	handleRegister = (ev, val) => {
 		ev.persist();
+		ev.preventDefault();
 		this.props.onSubmit && this.props.onSubmit(this.state.name, this.state.password)
 	}
 
@@ -53,7 +54,7 @@ export default class RegisterForm extends React.Component {
 							<input onChange = {this.handlePassword} name = 'Password' type = 'text' placeholder = 'Password' className = 'passwordRegister' />
 							<hr className = 'registerLine' />
 							<div className = 'signinRegister'> 
-								<input type = 'submit' name = 'Register' onClick = {this.handleNext} value='     Next     ' className = 'inputSigninRegister' />
+								<button name = 'Register' onClick = {this.handleRegister} value='     Next     ' className = 'inputSigninRegister' />
 							</div>
 							<RegisterFooter />
 						</div>
