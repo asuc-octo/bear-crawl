@@ -1,28 +1,25 @@
 class ClubConfirmationsController < Devise::RegistrationsController
   def new
-    @club = Club.new
-  end
-  
-  def create
-    @club = Club.new(sign_up_params)
-    if @club.save
-      redirect_to new_club_confirmation_path(request.parameters)
+    @club = Club.send_confirmation_instructions(confirm_params)
+    if successfully_sent?(@club)
+      redirect_to root_path
     else
-      clean_up_passwords @club
-      set_minimum_password_length
-      render json: {
-        "status": "error",
-        "message": "to be determined"
-        }, status: :bad_request
+      redirect_to root_path
     end
   end
-
-  private
-  def sign_up_params
-    params.require(:club).permit(:email, :password, :password_confirmation, :club_name, :description, :website)
+  
+  def show
+    @club = Club.confirm_by_token(params[:confirmation_token])
+    if @club.errors.empty?
+        cookies.signed.permanent[:club_id] = @club.id
+        cookies.signed.permanent[:is_signed_in] = "club"
+      redirect_to club_profiles_path(@club)
+    else
+      redirect_to root_path
+    end
   end
-
-  def account_update_params
-    params.require(:club).permit(:email, :password, :password_confirmation, :club_name, :description, :website
+  
+  def confirm_params
+    params.require(:club).permit(:email, :password, :password_confirmation)
   end
 end
