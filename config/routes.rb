@@ -8,7 +8,8 @@ Rails.application.routes.draw do
              },
              controllers: {
                sessions: 'club_sessions',
-               registrations: 'club_registrations'
+               registrations: 'club_registrations',
+               confirmations: 'club_confirmations'
              }
 
   devise_for :students,
@@ -20,7 +21,8 @@ Rails.application.routes.draw do
              },
              controllers: {
                sessions: 'student_sessions',
-               registrations: 'student_registrations'
+               registrations: 'student_registrations',
+               confirmations: 'student_confirmations'
              }
   
   

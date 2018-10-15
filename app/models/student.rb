@@ -10,6 +10,9 @@ class Student < ApplicationRecord
 
   validates :firstname, :lastname, :username, :year, :major, :linkedin, :facebook, :presence => true
   validates :username, :uniqueness => true
+  
+  has_one_attached :profile_picture
+  has_one_attached :resume
 
   
   has_many :interests, as: :interestable, dependent: :destroy
