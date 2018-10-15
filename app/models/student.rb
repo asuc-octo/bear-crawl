@@ -13,4 +13,8 @@ class Student < ApplicationRecord
 
   
   has_many :interests, as: :interestable, dependent: :destroy
+  
+  def to_param
+    username
+  end
 end
