@@ -61,7 +61,7 @@ textarea:focus, input:focus {
 	}
 }
 
-@keyframes opacitySlide {
+@keyframes opSlide {
 	0% {
 		opacity: 0.2;
 		transform: translateY(10%);

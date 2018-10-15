@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Register from './Components/Register';
 import Switch from './Components/Switch';
+import Majors from './Components/Switch';
 import Background from './../../assets/images/back.png';
 
 

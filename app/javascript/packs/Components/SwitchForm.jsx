@@ -4,36 +4,59 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Year from './Year.jsx';
+// import Majors from './Majors.jsx';
 
 export default class RegisterForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			majors: [], 
-			interests: [], 
-			year: "", 
-			showYear: 0
+			interests: [],
+			year: [], 
+			animateYear: false,
+			majorOptions: 
+				[
+					'Business Administration',
+					'Cognitive Science',
+					'Computer Science',
+					'Economics',
+					'Language Studies',
+					'MCB/MEB',
+					'Political Science',
+					'Public Health',
+				 ]
 		}
 		this.handleMajors = this.handleMajors.bind(this);
 		this.handleYear = this.handleYear.bind(this);
 		this.handleInterests = this.handleInterests.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 		this.showYear = this.showYear.bind(this);
+	}
+
+
+	handleYear = (ev, val) => {
+		ev.persist();
+		this.setState({year:ev.target.value}); 
 	}
 
 	handleMajors = (ev, val) => {
 		ev.persist();
-		this.setState({majors:ev.target.val});
-	}
-
-	handleYear = (ev, val) => {
-		ev.persist();
-		this.setState({year:ev.target.val}); 
+		const selection = ev.target.value;
+		let newMajors;
+		if (this.state.majorOptions(indexOf(selection) > -1)) {
+			newMajors = this.state.majors.filter(v => v !== selection)
+		} else {
+			newMajors = [...this.state.newMajors, selection];
+		}
+		this.setState(prevState => ({
+			majors: newMajors,
+		}));
 	}
 
 	handleInterests = (ev, val) => {
 		ev.persist();
 		ev.preventDefault();
-		this.setState({interests: ev.target.val});
+		this.setState({interests: ev.target.value});
 	}
 
 	handleSubmit = (ev, val) => {
@@ -46,14 +69,15 @@ export default class RegisterForm extends React.Component {
 	showYear = (ev, val) => {
 		ev.persist();
 		ev.preventDefault();
-		// var adder = this.state.majors;
-		// adder.push(ev.target.val);
-		// console.log(12);
-		this.setState({showYear: 1});
-		console.log(this.state.showYear);
+		console.log(this.state);
 	}
 
 	render() {
+		if (this.state.majors.length != 0) {
+			this.setState({
+				animateYear: true,
+			})
+		}
 		return (
 		<div>
 			<td>
@@ -64,28 +88,10 @@ export default class RegisterForm extends React.Component {
 			<div className = 'container' />
 		  		<div className = 'contained'>
 		  			<form method = '' action = '' className = 'registerFormRadios'>
-		  				<div className = 'groupFlex'>
-		  					<label><input onChange = {this.handleMajors} type = 'checkbox' name = 'Major' placeholder = 'Majors' value = 'Economics' /> Business Administration </label>
-		  					<br />
-		  					<input onChange = {this.handleMajors} type = 'checkbox' name = 'Major' placeholder = 'Majors' value = 'Economics' /> Cognitive Science
-		  					<br />
-		  					<input onChange = {this.handleMajors} type = 'checkbox' name = 'Major' placeholder = 'Majors' value = 'Economics' /> Computer Science
-		  					<br />
-		  					<input onChange = {this.handleMajors} type = 'checkbox' name = 'Major' placeholder = 'Majors' value = 'Economics' /> Economics
-		  					<br />
-		  					<input onChange = {this.handleMajors} type = 'checkbox' name = 'Major' placeholder = 'Majors' value = 'Economics' /> Language Studies
-		  					<br />
-		  					<input onChange = {this.handleMajors} type = 'checkbox' name = 'Major' placeholder = 'Majors' value = 'Economics' /> MCB/MEB
-		  					<br />
-		  					<input onChange = {this.handleMajors} type = 'checkbox' name = 'Major' placeholder = 'Majors' value = 'Economics' /> Political Science
-		  					<br />
-		  					<input onChange = {this.handleMajors} type = 'checkbox' name = 'Major' placeholder = 'Majors' value = 'Economics' /> Public Health
-		  					<br />
-						</div>
-							<div className = 'yearHolder' style = {{animation: this.state.showYear ? 'opacitySlide 0.3s ease-in forward' : 'none'}}> 
-								<Year onChange = {this.handleYear}  />
+							<div className = 'yearHolder' style = {{display: 'none' }}> 
+								<Year onChange = {this.handleMajors}  />
 							</div>
-						<button name = 'Register' onClick = {this.showYear} value='     Next     ' className = 'inputSigninRegister' />
+						<button name = 'Register' onClick = {this.showYear} className = 'inputSigninRegister' />
 					</form>
 				</div>
 			</div>
