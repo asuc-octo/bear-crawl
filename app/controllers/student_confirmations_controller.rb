@@ -11,6 +11,8 @@ class StudentConfirmationsController < Devise::ConfirmationsController
   def show
     @student = Student.confirm_by_token(params[:confirmation_token])
     if @student.errors.empty?
+      cookies.signed.permanent[:student_id] = @student.id
+      cookies.signed.permanent[:is_signed_in] = "student"
       redirect_to student_profiles_path(@student)
     else
       redirect_to root_path
