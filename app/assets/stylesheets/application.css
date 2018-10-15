@@ -28,6 +28,12 @@ textarea:focus, input:focus {
     color:white !important;
 }
 
+td {
+    text-align: center;
+    margin: auto;
+    display:block;
+}
+
 @keyframes slideUp {
 	0% {
 		transform: translateY(100%);
@@ -64,10 +70,12 @@ textarea:focus, input:focus {
 @keyframes opSlide {
 	0% {
 		opacity: 0.2;
+		display: none;
 		transform: translateY(10%);
 	}
 	100% {
 		opacity: 1;
+		display: inline-block;
 		transform: translateY(0%);
 	}
 }
@@ -112,11 +120,12 @@ textarea:focus, input:focus {
     background-size: cover;
  }
 
- td {
-    text-align: center;
-    margin: auto;
-    display:block;
-}
+ .yearHolder {
+ 	display: none;
+ 	flex-direction: row;
+ 	justify-content: center;
+ }
+
 
  .fas {
  	display: inline-block;
@@ -233,6 +242,7 @@ textarea:focus, input:focus {
 	border-radius:5px;
 	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
 	margin-top:50px;
+	margin-left: 30px;
 }
 
 .registerForm {
@@ -240,12 +250,48 @@ textarea:focus, input:focus {
 	text-align:center;
 }
 
-.registerFormRadios {
-	margin-left:30px;
+
+.registerFormContainerTwo {
+	margin-left:22px;
 	font-size:16px;
 	color: white;
 	text-align:left;
 	line-height: 2;
+	overflow-x:none;
+	display: none;
+}
+
+.width50 {
+	margin-left:22px;
+	font-size:16px;
+	color: white;
+	text-align:left;
+	width: 45%;
+	white-space: nowrap;
+	overflow-x:none;
+	display: inline-block;
+}
+
+.secondwidth50 {
+	width: 45%;
+	margin-left:22px;
+	font-size:16px;
+	display: none;
+	color: white;
+	text-align:left;
+	white-space: nowrap;
+	overflow-x:none;
+}
+
+.registerFormRadios {
+	margin-left:22px;
+	margin-right: 0px;
+	display: inline-block;
+	font-size:16px;
+	color: white;
+	text-align:left;
+	line-height: 2;
+	width:40%;
 }
 
 .registerLine {

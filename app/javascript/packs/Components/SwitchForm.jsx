@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Year from './Year.jsx';
-// import Majors from './Majors.jsx';
+import Majors from './Majors.jsx';
 
 export default class RegisterForm extends React.Component {
 	constructor(props) {
@@ -31,26 +31,12 @@ export default class RegisterForm extends React.Component {
 		this.handleInterests = this.handleInterests.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.showYear = this.showYear.bind(this);
-	}
+	};
 
 
 	handleYear = (ev, val) => {
 		ev.persist();
 		this.setState({year:ev.target.value}); 
-	}
-
-	handleMajors = (ev, val) => {
-		ev.persist();
-		const selection = ev.target.value;
-		let newMajors;
-		if (this.state.majorOptions(indexOf(selection) > -1)) {
-			newMajors = this.state.majors.filter(v => v !== selection)
-		} else {
-			newMajors = [...this.state.newMajors, selection];
-		}
-		this.setState(prevState => ({
-			majors: newMajors,
-		}));
 	}
 
 	handleInterests = (ev, val) => {
@@ -69,28 +55,47 @@ export default class RegisterForm extends React.Component {
 	showYear = (ev, val) => {
 		ev.persist();
 		ev.preventDefault();
-		console.log(this.state);
+		this.setState({
+			animateYear: true
+		});
+	}
+
+	handleMajors = (ev, val) => {
+		ev.persist();
+		const selection = ev.target.value;
+		let newMajors;
+		if (this.state.majors.indexOf(selection) > -1) {
+			newMajors = this.state.majors.filter(v => v !== selection)
+		} else {
+			if (this.state.majors == []) {
+				newMajors = [selection];
+			} else {
+				newMajors = [...this.state.majors, selection];
+			}
+		}
+		this.setState({majors: newMajors, animateYear: true}, (prevState) => {
+			console.log(this.state.majors)
+		});
+		this.forceUpdate();
 	}
 
 	render() {
-		if (this.state.majors.length != 0) {
-			this.setState({
-				animateYear: true,
-			})
-		}
 		return (
 		<div>
 			<td>
-				<i className="fa fa-bar-chart" aria-hidden="true"></i>
+				<i className ='fa fa-bar-chart' aria-hidden='true'></i>
 			</td>
 			<h1 className = 'registerTextLarge'>About you</h1>
 			<p className = 'smallRegisterText'>What's your major? </p> 
 			<div className = 'container' />
 		  		<div className = 'contained'>
-		  			<form method = '' action = '' className = 'registerFormRadios'>
-							<div className = 'yearHolder' style = {{display: 'none' }}> 
-								<Year onChange = {this.handleMajors}  />
-							</div>
+		  			<form method = '' action = '' >
+		  				<div className = 'width50'>
+		  					<Majors majorOptions = {this.state.majorOptions} onChange = {this.handleMajors} className = 'registerFormContainer'/>
+		  				</div>
+		  				<div className = 'secondwidth50' style = {{ animation: this.state.animateYear ? 'opSlide 0.8s ease-in forwards' : 'none', display: this.state.animateYear ? 'inline-block' : 'none'}} className = 'registerFormContainer' >
+		  					<Majors majorOptions = {this.state.majorOptions} onChange = {this.handleMajors} />
+		  				</div>
 						<button name = 'Register' onClick = {this.showYear} className = 'inputSigninRegister' />
 					</form>
 				</div>

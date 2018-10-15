@@ -13,7 +13,6 @@ export default class Register extends React.Component {
 	yearSelected = (ev, val) => {
 		ev.persist();
 		this.setState({year:ev.target.val});
-		console.log(ev.target.val);
 		this.props.onChange && this.props.onChange(this.state.yearSelected);
 		return;
 	}
