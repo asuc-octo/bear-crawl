@@ -1,2 +1,2 @@
-class ClubSessionsController < ApplicationController
+class ClubSessionsController < Devise::SessionsController
 end
