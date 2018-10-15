@@ -5,6 +5,7 @@ FactoryBot.define do
     
     website_url {"https://www.berkeley.edu"}
     description {"Example Club"}
+    username {"example-club"}
 
     sequence(:name) { |n| "democlub#{n}" }
     sequence(:email) { |n| "democlub#{n}@example.com" }
