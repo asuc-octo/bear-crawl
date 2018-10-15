@@ -1,0 +1,2 @@
+class ClubSessionsController < ApplicationController
+end
