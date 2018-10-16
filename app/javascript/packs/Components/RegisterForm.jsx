@@ -42,7 +42,7 @@ export default class RegisterForm extends React.Component {
 				<i className='fas fa-user'></i>
 			</td>
 			<h1 className = 'registerText'>Register</h1>
-			<p className = 'smallRegisterText'>For your security, passwords
+			<p className = 'smallRegisterTextFirstModal'>For your security, passwords
 			must include an upper case letter and at least one number. </p> 
 			<div className = 'container' />
 		  		<div className = 'contained'>

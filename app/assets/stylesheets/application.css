@@ -80,6 +80,17 @@ td {
 	}
 }
 
+@keyframes opSlideDown {
+	0% {
+		opacity: 0.8;
+		transform: translateY(-25%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}
+
 .whiteContainer#slider {
 	animation-name: slideUp;
 	animation-duration: 1s;
@@ -188,8 +199,16 @@ td {
 	margin-left:30px;
 	font-size:13px;
 	text-align:left;
+	width:45%;
+}
+.smallRegisterTextFirstModal {
+	color:gray;
+	margin-left:30px;
+	font-size:13px;
+	text-align:left;
 	width:70%;
 }
+
 
 .signinRegister {
 	display:flex;
@@ -231,7 +250,7 @@ td {
 	justify-content:left;
 }
 
-.inputSigninRegister {
+.inputSigninRegisterSecond {
 	border:0;
 	color:white;
 	font-family: inherit;
@@ -245,6 +264,86 @@ td {
 	margin-left: 30px;
 }
 
+.round {
+	position:fixed;
+	font-size: 14px;
+}
+
+.round input {
+	position:fixed;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.checkmark {
+	display:block;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container .checkmark:before {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-radius:50%;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-radius:50%;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.inputSigninRegisterThird {
+	border:0;
+	color:white;
+	font-family: inherit;
+	background-color:rgba(238, 181, 77, 1);
+	height:45px;
+	width:120px;
+	font-size:22px;
+	border-radius:5px;
+	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
+	margin-top:50px;
+}
+
+.inputSigninRegister {
+	border:0;
+	color:white;
+	font-family: inherit;
+	background-color:rgba(238, 181, 77, 1);
+	height:45px;
+	width:120px;
+	font-size:22px;
+	border-radius:5px;
+	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
+	margin-top:50px;
+}
+
 .registerForm {
 	font-size:16px;
 	text-align:center;
@@ -252,35 +351,62 @@ td {
 
 
 .registerFormContainerTwo {
-	margin-left:22px;
 	font-size:16px;
 	color: white;
 	text-align:left;
 	line-height: 2;
 	overflow-x:none;
-	display: none;
+	width: 45%;
 }
 
-.width50 {
-	margin-left:22px;
-	font-size:16px;
-	color: white;
-	text-align:left;
-	width: 45%;
-	white-space: nowrap;
-	overflow-x:none;
+.contained50 {
+	width: 100%;
+	margin-top: 0px;
 	display: inline-block;
 }
 
+.width50 {
+	font-size:16px;
+	color: white;
+	text-align:left;
+	width: 50%;
+	white-space: nowrap;
+	overflow-x:none;
+	line-height: 2;
+	display: inline-block;
+	margin-left:30px;
+}
+
+p {
+	display: inline-block;
+}
+
+.textcontainer {
+	display: inline-block;
+	width: 100%;
+}
+
+.smallRegisterTextRight {
+	text-align: left;
+	color:gray;
+	margin-left:30px;
+	font-size:13px;
+	width:40%;
+	position: fixed;
+}
+
 .secondwidth50 {
-	width: 45%;
-	margin-left:22px;
+	margin-top: 0px;
+	margin-left:30px;
 	font-size:16px;
 	display: none;
 	color: white;
 	text-align:left;
 	white-space: nowrap;
 	overflow-x:none;
+	line-height: 2;
+	width: 50%;
+	position: fixed;
 }
 
 .registerFormRadios {

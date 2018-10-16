@@ -86,17 +86,21 @@ export default class RegisterForm extends React.Component {
 				<i className ='fa fa-bar-chart' aria-hidden='true'></i>
 			</td>
 			<h1 className = 'registerTextLarge'>About you</h1>
-			<p className = 'smallRegisterText'>What's your major? </p> 
 			<div className = 'container' />
-		  		<div className = 'contained'>
+		  		<div className = 'contained50'>
 		  			<form method = '' action = '' >
-		  				<div className = 'width50'>
+		  				<div className = 'textContainer'> 
+							<p className = 'smallRegisterText' > Awesome! What major are you? </p> 
+		  					<p className = 'smallRegisterTextRight' style = {{ animation: this.state.animateYear ? 'opSlide 0.8s ease-in forwards' : 'none', display: this.state.animateYear ? 'inline-block' : 'none'}}> What are some things you enjoy doing? </p> 
+		  				</div>
+		  				<div className = 'width50' style = {{ animation: 'opSlideDown 1.1s linear forwards'}} >
 		  					<Majors majorOptions = {this.state.majorOptions} onChange = {this.handleMajors} className = 'registerFormContainer'/>
+		  					<button name = 'Register' onClick = {this.showYear} className = 'inputSigninRegisterSecond' style = {{display: this.state.animateYear ? 'none' : 'inline-block' }}/>
 		  				</div>
-		  				<div className = 'secondwidth50' style = {{ animation: this.state.animateYear ? 'opSlide 0.8s ease-in forwards' : 'none', display: this.state.animateYear ? 'inline-block' : 'none'}} className = 'registerFormContainer' >
-		  					<Majors majorOptions = {this.state.majorOptions} onChange = {this.handleMajors} />
-		  				</div>
-						<button name = 'Register' onClick = {this.showYear} className = 'inputSigninRegister' />
+		  				<div style = {{ animation: this.state.animateYear ? 'opSlide 0.6s ease-in forwards' : 'none', display: this.state.animateYear ? 'inline-block' : 'none'}} className = 'secondwidth50' >
+	  						<Majors majorOptions = {this.state.majorOptions} onChange = {this.handleMajors} />
+	  						<button name = 'Register' onClick = {this.showYear} className = 'inputSigninRegisterThird' style = {{display: this.state.animateYear ? 'inline-block' : 'none' }}/>
+	  					</div>
 					</form>
 				</div>
 			</div>

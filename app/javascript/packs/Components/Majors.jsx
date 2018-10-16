@@ -14,20 +14,21 @@ export default class Majors extends React.Component {
 
 	render() {
 		return (
-		<div className='registerFormRadios'> 
+		<div > 
 			{this.props.majorOptions.map((option) => { 
 				return (
-				<div> 
-					<label key={option}>
+				<div>
+					<span class="checkmark"></span> 
+					<label key={option} className = 'round'>
 			            <input
 			              onChange={this.props.onChange}
 			              value={option}
 			              checked={this.props.majorOptions.indexOf({option}) > -1 }
 			              type='checkbox' /> {option}
-		          </label>  
+		          </label> 
 		          <br />
 		        </div>
-	      	)})};
+	      	)})}
 		</div> 
 	)};
 }
