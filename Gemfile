@@ -58,6 +58,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'capybara', '~> 3.7', '>= 3.7.2'
   gem 'selenium-webdriver', '~> 3.12.0'
+  gem 'launchy'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper', '~> 1.2.0'
   

@@ -1,10 +1,17 @@
 class StudentSessionsController < Devise::SessionsController
+  def new
+    super
+  end
+  
   def create
+    binding.pry
     @student = warden.authenticate!(auth_options)
     cookies.signed.permanent[:student_id] = @student.id
     cookies.signed.permanent[:is_signed_in] = "student"
     sign_in("student", @student)
-    redirect_to student_profiles_path(@student)
+    binding.pry
+    redirect_to root_path
+    #redirect_to student_profiles_path(@student)
   end
   
   def destroy
@@ -12,6 +19,10 @@ class StudentSessionsController < Devise::SessionsController
     cookies.delete :student_id
     cookies.delete :is_signed_in
     yield if block_given?
+    redirect_to root_path
+  end
+  
+  def after_sign_in_path_for(resource)
     redirect_to root_path
   end
 end
