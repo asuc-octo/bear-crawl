@@ -1,12 +1,45 @@
-<h2>Sign up</h2>
+<h2>EWEEE up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
+<%= form_for(Student.new, as: :student, url: registration_path(:student)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+
+  <div class="field">
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autofocus: true %>
+  </div>
+
+    <div class="field">
+        <%= f.label :firstname %><br />
+        <%= f.text_field :firstname, autofocus: true %>
+    </div>
+
+    <div class="field">
+        <%= f.label :lastname %><br />
+        <%= f.text_field :lastname, autofocus: true %>
+    </div>
+
+    <div class="field">
+        <%= f.label :year %><br />
+        <%= f.text_field :year, autofocus: true %>
+    </div>
+
+    <div class="field">
+        <%= f.label :linkedin %><br />
+        <%= f.text_field :linkedin, autofocus: true %>
+    </div>
+
+    <div class="field">
+        <%= f.label :major %><br />
+        <%= f.text_field :major, autofocus: true %>
+    </div>
+
+    <div class="field">
+        <%= f.label :facebook %><br />
+        <%= f.text_field :facebook, autofocus: true %>
+    </div>
 
   <div class="field">
     <%= f.label :password %>

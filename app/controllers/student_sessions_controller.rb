@@ -4,12 +4,10 @@ class StudentSessionsController < Devise::SessionsController
   end
   
   def create
-    binding.pry
     @student = warden.authenticate!(auth_options)
     cookies.signed.permanent[:student_id] = @student.id
     cookies.signed.permanent[:is_signed_in] = "student"
     sign_in("student", @student)
-    binding.pry
     redirect_to root_path
     #redirect_to student_profiles_path(@student)
   end

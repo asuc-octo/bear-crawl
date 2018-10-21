@@ -3,6 +3,8 @@ FactoryBot.define do
     password {'password'}
     password_confirmation {'password'}
     
+    confirmed_at {DateTime.now}
+    
     year {2021}
     major {"Computer Science"}
     linkedin {"https://www.linkedin.com/in/exampleuser"}
