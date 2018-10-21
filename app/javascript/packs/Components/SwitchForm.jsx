@@ -100,7 +100,7 @@ export default class RegisterForm extends React.Component {
 			<td>
 				<i className ='fa fa-bar-chart' aria-hidden='true'></i>
 			</td>
-			<h1 className = 'registerTextLarge'>About you</h1>
+			<h1 className = 'registerTextLarge'>All about you</h1>
 			<div className = 'container' />
 		  		<div className = 'contained50'>
 		  			<form method = '' action = '' >
