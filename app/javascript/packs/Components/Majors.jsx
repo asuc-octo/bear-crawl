@@ -7,8 +7,15 @@ export default class Majors extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			majorList: []
+			majorList: [], 
+			clicked: false
 		}
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick(ev, val) {
+		ev.persist();
+		this.setState({clicked: true})
 	}
 	
 
@@ -17,16 +24,16 @@ export default class Majors extends React.Component {
 		<div > 
 			{this.props.majorOptions.map((option) => { 
 				return (
-				<div>
-					<span class="checkmark"></span> 
-					<label key={option} className = 'round'>
+				<div className = 'width45'> 
+					<label key={option} for={option}>
 			            <input
 			              onChange={this.props.onChange}
+			              onClick={this.handleClick}
 			              value={option}
-			              checked={this.props.majorOptions.indexOf({option}) > -1 }
-			              type='checkbox' /> {option}
+			              checked={this.props.majors.indexOf(option) > -1}
+			              type='checkbox' /> 
+			              <span>{option}</span>
 		          </label> 
-		          <br />
 		        </div>
 	      	)})}
 		</div> 

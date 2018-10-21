@@ -24,6 +24,24 @@
     color:white !important;
 }
 
+@keyframes colorChange {
+	0% {
+		color: white;
+	}
+	100% {
+		color: rgba(225, 153, 35, 1);
+	}
+}
+
+:checked + span { 
+	animation: colorChange 0.2s ease-out forwards;
+	font-weight: bold;
+}
+
+span {
+	font-size: 16px;
+}
+
 textarea:focus, input:focus {
     color:white !important;
 }
@@ -83,7 +101,7 @@ td {
 @keyframes opSlideDown {
 	0% {
 		opacity: 0.8;
-		transform: translateY(-25%);
+		transform: translateY(70%);
 	}
 	100% {
 		opacity: 1;
@@ -155,7 +173,7 @@ td {
  }
 
  .whiteContainer {
- 	background-color: rgba(18, 18, 18, 0.8);
+ 	background-color: rgba(18, 18, 18, 0.88);
  	border-radius: 10px;
  	margin-top:20px;
  	margin-top:20px;
@@ -172,8 +190,8 @@ td {
  	border-radius: 10px;
  	margin-top:20px;
  	margin-top:20px;
- 	height:600px;
- 	width:700px;
+ 	height:620px;
+ 	width:680px;
  	animation: slideUp;
 	animation-duration: 0.6s;
 	animation-timing-function: ease-in-out;
@@ -189,16 +207,18 @@ td {
 
 .registerTextLarge {
 	color:white;
-	font-size: 45px;
+	letter-spacing: -1px;
+	font-size: 70px;
 	margin-left: 30px;
 	text-align: center;
+	margin-top:2px;
 }
 
 .smallRegisterText {
 	color:gray;
-	margin-left:30px;
-	font-size:13px;
+	font-size:14px;
 	text-align:left;
+	margin-left:40px;
 	width:45%;
 }
 .smallRegisterTextFirstModal {
@@ -217,7 +237,7 @@ td {
 }
 
 .registerLink {
-	margin-top:60px;
+	margin-top:50px;
 	background-color:none;
 	color:#ccc;
 	text-decoration:none;
@@ -232,7 +252,7 @@ td {
 }
 
 .registerLinkForgot {
-	margin-top:60px;
+	margin-top:50px;
 	background-color:none;
 	color:#ccc;
 	text-decoration:none;
@@ -260,8 +280,8 @@ td {
 	font-size:22px;
 	border-radius:5px;
 	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
-	margin-top:50px;
-	margin-left: 30px;
+	margin-top:30px;
+	margin-left: 50px;
 }
 
 .round {
@@ -277,46 +297,6 @@ td {
 	width: 0;
 }
 
-.checkmark {
-	display:block;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: white;
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.container .checkmark:before {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-radius:50%;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-radius:50%;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
 
 .inputSigninRegisterThird {
 	border:0;
@@ -328,7 +308,56 @@ td {
 	font-size:22px;
 	border-radius:5px;
 	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
-	margin-top:50px;
+	margin-top:20px;
+	margin-left:30px;
+}
+
+.interestsContainer1 {
+	height: 70px;
+	width: 200px;
+	box-sizing: border-box;
+	border: 1px solid white;
+	border-radius: 5px;
+	background-color: rgb(31, 118, 231, 0.05);
+    color: white;
+    font-size: 14px;
+    resize: none;
+}
+
+
+
+.interestsContainer2 {
+	height: 70px;
+	width: 200px;
+	box-sizing: border-box;
+	border: 1px solid white;
+	border-radius: 5px;
+	background-color: rgba(28, 58, 81, 0.05);
+    color: white;
+    font-size: 14px;
+    resize: none;
+}
+
+.interestsContainer3 {
+	height: 70px;
+	width: 200px;
+	box-sizing: border-box;
+	border: 1px solid white;
+	border-radius: 5px;
+	background-color: rgba(2, 33, 73, 0.05);
+    color: white;
+    font-size: 14px;
+    resize: none;
+}
+
+.interestsContainer1:focus {
+	background-color: rgba(31, 118, 231, 1);
+}
+.interestsContainer2:focus {
+	background-color: rgba(23, 73, 141, 1);
+}
+.interestsContainer3:focus {
+	background-color: rgba(2, 33, 73, 1);
 }
 
 .inputSigninRegister {
@@ -374,24 +403,40 @@ td {
 	overflow-x:none;
 	line-height: 2;
 	display: inline-block;
-	margin-left:30px;
+}
+
+.width45 {
+	width:45%;
+	margin-left: 40px;
+	font-size: 15px;
 }
 
 p {
 	display: inline-block;
+	margin:20px;
 }
 
-.textcontainer {
+input[type='checkbox'] {
+	margin-left: 20px;
+}
+
+.textContainer {
 	display: inline-block;
 	width: 100%;
+}
+
+.interestsSeparator {
+	margin-top: 15px;
+	margin-bottom: 10px;
 }
 
 .smallRegisterTextRight {
 	text-align: left;
 	color:gray;
 	margin-left:30px;
-	font-size:13px;
-	width:40%;
+	margin-bottom:10px;
+	font-size:14px;
+	width:30%;
 	position: fixed;
 }
 

@@ -54,7 +54,7 @@ export default class RegisterForm extends React.Component {
 							<input onChange = {this.handlePassword} name = 'Password' type = 'text' placeholder = 'Password' className = 'passwordRegister' />
 							<hr className = 'registerLine' />
 							<div className = 'signinRegister'> 
-								<button name = 'Register' onClick = {this.handleRegister} value='     Next     ' className = 'inputSigninRegister' />
+								<input type = 'submit'  name = 'Register' onClick = {this.handleRegister} value='     Next     ' className = 'inputSigninRegister' />
 							</div>
 							<RegisterFooter />
 						</div>
