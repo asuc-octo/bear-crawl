@@ -5,10 +5,11 @@ RSpec.describe 'Logging in a student', type: :feature, js:true do
     let!(:student) {create(:student)}
     
     before do
-      visit '/student/login'
+      visit '/students/login'
     end
     
     it 'signs in with valid credentials' do
+      binding.pry
       within('.new_student') do
         fill_in 'Email', with: student.email
         fill_in 'Password', with: student.password

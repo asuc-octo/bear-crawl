@@ -1,4 +1,4 @@
-class StudentConfirmationsController < Devise::ConfirmationsController
+class Students::ConfirmationsController < Devise::ConfirmationsController
   def new
     @student = Student.send_confirmation_instructions(confirm_params)
     if successfully_sent?(@student)

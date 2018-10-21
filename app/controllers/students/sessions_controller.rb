@@ -1,4 +1,4 @@
-class StudentSessionsController < Devise::SessionsController
+class Students::SessionsController < Devise::SessionsController
   def new
     super
   end

@@ -1,4 +1,4 @@
-class ClubPasswordsController < Devise::PasswordsController
+class Clubs::PasswordsController < Devise::PasswordsController
   before_action :verify_club_reset, only: :edit
 
   def create

@@ -1,4 +1,4 @@
-class StudentPasswordsController < Devise::PasswordsController
+class Students::PasswordsController < Devise::PasswordsController
   before_action :verify_student_reset, only: :edit
 
   def create

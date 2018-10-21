@@ -1,6 +1,6 @@
-class StudentRegistrationsController < Devise::RegistrationsController
+class Students::RegistrationsController < Devise::RegistrationsController
   def new
-    @student = Student.new
+    super
   end
   
   def create

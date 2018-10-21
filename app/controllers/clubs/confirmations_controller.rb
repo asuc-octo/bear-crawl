@@ -1,4 +1,4 @@
-class ClubConfirmationsController < Devise::RegistrationsController
+class Clubs::ConfirmationsController < Devise::RegistrationsController
   def new
     @club = Club.send_confirmation_instructions(confirm_params)
     if successfully_sent?(@club)

@@ -1,4 +1,4 @@
-class ClubSessionsController < Devise::SessionsController
+class Clubs::SessionsController < Devise::SessionsController
     def create
         @club = warder.authenticate!(auth_options)
         cookies.signed.permanent[:club_id] = @club.id

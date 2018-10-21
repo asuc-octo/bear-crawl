@@ -1,43 +1,43 @@
 Rails.application.routes.draw do
   devise_for :clubs, 
-             path: '',
+             path: 'clubs',
              path_names: {
-               sign_in: 'club/login',
-               sign_out: 'club/logout',
-               registration: 'club/signup',
-               password: 'club/password/',
-               confirmation: 'club/confirmation'
+               sign_in: 'login',
+               sign_out: 'logout',
+               registration: 'signup',
+               password: 'password',
+               confirmation: 'confirmation'
              },
              controllers: {
-               sessions: 'club_sessions',
-               registrations: 'club_registrations',
-               confirmations: 'club_confirmations',
-               passwords: 'club_passwords'
+               sessions: 'clubs/sessions',
+               registrations: 'clubs/registrations',
+               confirmations: 'clubs/confirmations',
+               passwords: 'clubs/passwords'
              }
 
   devise_for :students,
-             path: '',
+             path: 'students',
              path_names: {
-               sign_in: 'student/login',
-               sign_out: 'student/logout',
-               registration: 'student/signup',
-               password: 'student/password/',
-               confirmation: 'student/confirmation'
+               sign_in: 'login',
+               sign_out: 'logout',
+               registration: 'signup',
+               password: 'password',
+               confirmation: 'confirmation'
              },
              controllers: {
-               sessions: 'student_sessions',
-               registrations: 'student_registrations',
-               confirmations: 'student_confirmations',
-               passwords: 'student_passwords'
+               sessions: 'students/sessions',
+               registrations: 'students/registrations',
+               confirmations: 'students/confirmations',
+               passwords: 'students/passwords'
              }
   
   
-  resources :students do
-    resource :profiles, controller: 'student_profiles', only: [:show]
+  resource :student do
+    resources :profiles, controller: 'student/profiles', only: [:show]
   end
   
-  resources :clubs do
-    resource :profiles, controller: 'club_profiles', only: [:show]
+  resource :club do
+    resources :profiles, controller: 'club/profiles', only: [:show]
   end
   
   resources :search, only: [:index]

@@ -1,4 +1,4 @@
-class ClubRegistrationsController < Devise::ConfirmationsController
+class Clubs::RegistrationsController < Devise::ConfirmationsController
   def new
     @club = Club.new
   end
