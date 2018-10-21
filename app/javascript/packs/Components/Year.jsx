@@ -5,27 +5,29 @@ export default class Register extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			year: ""
+			year: "And your year?"
 		}
 		this.yearSelected = this.yearSelected.bind(this)
 	}
 
 	yearSelected = (ev, val) => {
 		ev.persist();
-		this.setState({year:ev.target.val});
-		this.props.onChange && this.props.onChange(this.state.yearSelected);
-		return;
+		this.setState({year:ev.target.value});
+		this.props.onSubmit && this.props.onSubmit(this.state.yearSelected);
 	}
 
 	render() {
+		console.log(this.state.year)
 		return (
 		<div >
-	  		<input name = 'Freshman' value = 'Freshman' type = 'checkbox' onChange = {this.yearSelected} />
-	  		<input name = 'Sophomore' value = 'Sophomore' type = 'checkbox' onChange = {this.yearSelected} />
-	  		<input name = 'Junior' value = 'Junior' type = 'checkbox' onChange = {this.yearSelected} />
-	  		<input name = 'Senior' value = 'Senior' type = 'checkbox' onChange = {this.yearSelected} />
-	  		<input name = '5th year Senior' value = '5th year Senior' type = 'checkbox' onChange = {this.yearSelected} />
-	  		<input name = 'Graduate Student' value = 'Graduate Student' type = 'checkbox'  onChange = {this.yearSelected} />
+			<select value = {this.state.year}> 
+		  		<option value = 'Freshman' onChange = {this.yearSelected}> Freshman </option>
+		  		<option value = 'Sophomore' onChange = {this.yearSelected}> Sophomore </option>
+		  		<option value = 'Junior' onChange = {this.yearSelected}> Junior </option>
+		  		<option value = 'Senior' onChange = {this.yearSelected}> Senior </option>
+		  		<option value = '5th year Senior' onChange = {this.yearSelected}> 5th Year Senior </option>
+		  		<option value = 'Graduate Student' onChange = {this.yearSelected}> Graduate Student </option>
+		  	</select>
 		</div> 
 	)};
 }

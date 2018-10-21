@@ -14,6 +14,7 @@ export default class RegisterForm extends React.Component {
 			majors: [], 
 			interests: [],
 			year: [], 
+			animateMajor: false,
 			animateYear: false,
 			majorOptions: 
 				[
@@ -54,7 +55,7 @@ export default class RegisterForm extends React.Component {
 				newInterests = [...this.state.interests, selection];
 			}
 		}
-		this.setState({interests: newInterests}, (prevState) => {
+		this.setState({interests: newInterests, animateYear:true}, (prevState) => {
 			console.log(this.state.interets)
 		});
 		this.forceUpdate();
@@ -65,6 +66,14 @@ export default class RegisterForm extends React.Component {
 		ev.preventDefault();
 		this.props.onSubmit && this.props
 			.onSubmit(this.state.majors, this.state.interests, this.state.year);
+	}
+
+	showMajor = (ev, val) => {
+		ev.persist();
+		ev.preventDefault();
+		this.setState({
+			animateMajor: true
+		});
 	}
 
 	showYear = (ev, val) => {
@@ -94,6 +103,7 @@ export default class RegisterForm extends React.Component {
 		this.forceUpdate();
 	}
 
+
 	render() {
 		return (
 		<div>
@@ -106,15 +116,18 @@ export default class RegisterForm extends React.Component {
 		  			<form method = '' action = '' >
 		  				<div className = 'textContainer'> 
 							<p className = 'smallRegisterText' > Awesome! What major are you? </p> 
-		  					<p className = 'smallRegisterTextRight' style = {{ animation: this.state.animateYear ? 'opSlide 0.8s ease-in forwards' : 'none', display: this.state.animateYear ? 'inline-block' : 'none'}}> Sounds cool! Could you tell us about a couple things you like doing outside school? </p> 
+		  					<p className = 'smallRegisterTextRight' style = {{ animation: this.state.animateMajor ? 'opSlide 0.8s ease-in forwards' : 'none', display: this.state.animateMajor ? 'inline-block' : 'none'}}> Sounds cool! Could you tell us about a couple things you like doing outside school? </p> 
 		  				</div>
 		  				<div className = 'width50' style = {{ animation: 'opSlideDown 0.8s linear forwards'}} >
 		  					<Majors majorOptions = {this.state.majorOptions} majors = {this.state.majors} onChange = {this.handleMajors} className = 'registerFormContainer'/>
-		  					<input name = 'Register' type = 'submit' onClick = {this.showYear} className = 'inputSigninRegisterSecond' style = {{display: this.state.animateYear ? 'none' : 'inline-block' }} value = 'Next' />
+		  					<input type = 'submit' onClick = {this.showMajor} className = 'inputSigninRegisterSecond' style = {{display: this.state.animateMajor ? 'none' : 'inline-block' }} value = 'Next' />
 		  				</div>
-		  				<div style = {{ animation: this.state.animateYear ? 'opSlide 0.6s ease-in forwards' : 'none', display: this.state.animateYear ? 'inline-block' : 'none'}} className = 'secondwidth50' >
+		  				<div style = {{ animation: this.state.animateMajor ? 'opSlide 0.6s ease-in forwards' : 'none', display: this.state.animateMajor ? 'inline-block' : 'none' }} className = 'secondwidth50' >
 	  						<Interests onSubmit = {this.handleInterests} />
-	  						<input name = 'Register' type = 'submit' value = 'Next' onClick = {this.showYear} className = 'inputSigninRegisterThird' style = {{display: this.state.animateYear ? 'inline-block' : 'none' }} />
+	  						<input type = 'submit' value = 'Next' onClick = {this.showYear} className = 'inputSigninRegisterThird' style = {{display: this.state.animateMajor ? 'inline-block' : 'none', animation: this.state.animateYear ? 'slideOff 0.8s linear forwards' : 'none'}} />
+	  						<div className = "yearHolder" style = {{animation: this.state.animateYear ? 'yearSwitch 0.8s ease-out forwards' :  'none', display: this.state.animateYear ? 'flex' : 'none'}}> 
+						 		<Year onSubmit = {this.propsNewUser} /> 
+						 	</div>
 	  					</div>
 					</form>
 				</div>

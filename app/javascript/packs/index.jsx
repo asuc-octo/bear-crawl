@@ -24,15 +24,15 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			transform:false, 
+			transform:false,			
 			username: "", 
 			password: "",
 			majors: [], 
 			interests: [], 
-			year: "Freshman" 
+			year: "Freshman", 
 		}
 		this.changeStyle = this.changeStyle.bind(this);
-		this.newUser = this.changeStyle.bind(this);
+		this.newUser = this.newUser.bind(this);
 	};
 
 	changeStyle(name, password) {
@@ -40,7 +40,7 @@ export default class App extends React.Component {
 	}	
 
 	newUser(majors, interests, year) {
-		this.setState({majors, interests, year});
+		this.setState({year, majors, interests});
 	}
 
 	render() {
@@ -56,10 +56,10 @@ export default class App extends React.Component {
 			    </div>
 			  </div>
 		    <div className = "extraContainer" style = {{backgroundImage: `url(${Background})`}}>
-			    <div className = "switchContainer" style = {{background: 'transparent', animation: this.state.transform ? 'sliderSwitch 0.8s ease-in-out forwards' : 'none', display: this.state.transform ? 'flex' : 'none'} } >
+			    <div className = "switchContainer" style = {{background: 'transparent', animation: this.state.transform ? 'sliderSwitch 0.8s ease-in-out forwards' : 'none', display: this.state.transform ? 'flex' : 'none'} }>
 			    	<div className = "switchWhiteContainer" >
 			    		<div className = "container"> 
-			      			<Switch username="Username" password="Password" onSubmit = {this.newUser} />
+			      			<Switch onSubmit = {this.newUser} />
 			      		</div>
 			      	</div>
 			    </div>
