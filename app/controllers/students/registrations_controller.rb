@@ -6,7 +6,8 @@ class Students::RegistrationsController < Devise::RegistrationsController
   def create
     @student = Student.new(sign_up_params)
     if @student.save
-      redirect_to new_student_confirmation_path(request.parameters)
+      redirect_to root_path
+      #redirect_to new_student_confirmation_path(request.parameters)
     else
       clean_up_passwords @student
       set_minimum_password_length

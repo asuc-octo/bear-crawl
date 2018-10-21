@@ -9,7 +9,7 @@ class Students::PasswordsController < Devise::PasswordsController
       cookies.delete :is_signed_in
       redirect_to root_path
     else
-      redirect_to root_path
+      redirect_to new_student_password_path
     end
   end
 
@@ -21,18 +21,19 @@ class Students::PasswordsController < Devise::PasswordsController
 
   def update
     @student = Student.reset_password_by_token(new_password_params)
-
     if @student.errors.empty?
       sign_in(:student, @student)
       cookies.signed.permanent[:student_id] = @student.id
       cookies.signed.permanent[:is_signed_in] = "student"
-      redirect_to student_profiles_path(@student)
+      redirect_to root_path
+      #redirect_to student_profiles_path(@student)
     else
       set_minimum_password_length
-      render json: {
-        "status": "error",
-        "message": "errors"
-        }, status: :unprocessable_entity
+      redirect_to new_student_password_path
+#      render json: {
+#        "status": "error",
+#        "message": "errors"
+#        }, status: :unprocessable_entity
     end
   end
 

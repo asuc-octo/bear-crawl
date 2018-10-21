@@ -66,5 +66,10 @@ group :development, :test do
   gem 'factory_bot_rails'
 end
 
+group :test do
+  gem 'email_spec'
+  gem "show_me_the_cookies"
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
