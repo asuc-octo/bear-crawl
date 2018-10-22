@@ -13,20 +13,20 @@ export default class Register extends React.Component {
 	yearSelected = (ev, val) => {
 		ev.persist();
 		this.setState({year:ev.target.value});
-		this.props.onSubmit && this.props.onSubmit(this.state.yearSelected);
+		this.props.onChange && this.props.onChange(this.state.year);
 	}
 
 	render() {
-		console.log(this.state.year)
 		return (
-		<div >
-			<select value = {this.state.year}> 
-		  		<option value = 'Freshman' onChange = {this.yearSelected}> Freshman </option>
-		  		<option value = 'Sophomore' onChange = {this.yearSelected}> Sophomore </option>
-		  		<option value = 'Junior' onChange = {this.yearSelected}> Junior </option>
-		  		<option value = 'Senior' onChange = {this.yearSelected}> Senior </option>
-		  		<option value = '5th year Senior' onChange = {this.yearSelected}> 5th Year Senior </option>
-		  		<option value = 'Graduate Student' onChange = {this.yearSelected}> Graduate Student </option>
+		<div className = 'select' onChange = {this.props.yearSelected}>
+			<select defaultValue = {this.state.year} className = 'selectYear'> 
+				<option defaultValue = 'And your year?' disabled> And your year? </option>
+		  		<option defaultValue = 'Freshman' onChange = {this.yearSelected}> Freshman </option>
+		  		<option defaultValue = 'Sophomore' onChange = {this.yearSelected}> Sophomore </option>
+		  		<option defaultValue = 'Junior' onChange = {this.yearSelected}> Junior </option>
+		  		<option defaultValue = 'Senior' onChange = {this.yearSelected}> Senior </option>
+		  		<option defaultValue = '5th year Senior' onChange = {this.yearSelected}> 5th Year Senior </option>
+		  		<option defaultValue = 'Graduate Student' onChange = {this.yearSelected}> Graduate Student </option>
 		  	</select>
 		</div> 
 	)};

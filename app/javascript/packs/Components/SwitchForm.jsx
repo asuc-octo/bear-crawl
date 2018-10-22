@@ -13,7 +13,7 @@ export default class RegisterForm extends React.Component {
 		this.state = {
 			majors: [], 
 			interests: [],
-			year: [], 
+			year: "", 
 			animateMajor: false,
 			animateYear: false,
 			majorOptions: 
@@ -37,9 +37,10 @@ export default class RegisterForm extends React.Component {
 	};
 
 
-	handleYear = (ev, val) => {
-		ev.persist();
-		this.setState({year:ev.target.value}); 
+	handleYear(year) {
+		console.log(12);
+		this.setState({year}); 	
+		this.props.onSubmit && this.props.onSubmit(this.state.majors, this.state.interests, this.state.year)
 	}
 
 	handleInterests = (ev, val) => {
@@ -125,10 +126,10 @@ export default class RegisterForm extends React.Component {
 		  				<div style = {{ animation: this.state.animateMajor ? 'opSlide 0.6s ease-in forwards' : 'none', display: this.state.animateMajor ? 'inline-block' : 'none' }} className = 'secondwidth50' >
 	  						<Interests onSubmit = {this.handleInterests} />
 	  						<input type = 'submit' value = 'Next' onClick = {this.showYear} className = 'inputSigninRegisterThird' style = {{display: this.state.animateMajor ? 'inline-block' : 'none', animation: this.state.animateYear ? 'slideOff 0.8s linear forwards' : 'none'}} />
-	  						<div className = "yearHolder" style = {{animation: this.state.animateYear ? 'yearSwitch 0.8s ease-out forwards' :  'none', display: this.state.animateYear ? 'flex' : 'none'}}> 
-						 		<Year onSubmit = {this.propsNewUser} /> 
-						 	</div>
 	  					</div>
+	  					<div className = "yearHolder" style = {{animation: this.state.animateYear ? 'yearSwitch 0.6s ease-out forwards' :  'none', display: this.state.animateYear ? 'flex' : 'none'}}> 
+						 	<Year onChange = {this.handleYear} /> 
+						 </div>
 					</form>
 				</div>
 			</div>

@@ -11,15 +11,15 @@
   "Components/RegisterFooter.js.map": "/packs/Components/RegisterFooter-3624c2b8cff0d2c4462a.js.map",
   "Components/RegisterForm.js": "/packs/Components/RegisterForm-357f5646f1d4d00f9981.js",
   "Components/RegisterForm.js.map": "/packs/Components/RegisterForm-357f5646f1d4d00f9981.js.map",
-  "Components/Switch.js": "/packs/Components/Switch-29f05735cd800f82d9ba.js",
-  "Components/Switch.js.map": "/packs/Components/Switch-29f05735cd800f82d9ba.js.map",
-  "Components/SwitchForm.js": "/packs/Components/SwitchForm-0859e8735ec04abc2d9e.js",
-  "Components/SwitchForm.js.map": "/packs/Components/SwitchForm-0859e8735ec04abc2d9e.js.map",
-  "Components/Year.js": "/packs/Components/Year-b630d90ecf587116b5ce.js",
-  "Components/Year.js.map": "/packs/Components/Year-b630d90ecf587116b5ce.js.map",
+  "Components/Switch.js": "/packs/Components/Switch-960153214415d611e043.js",
+  "Components/Switch.js.map": "/packs/Components/Switch-960153214415d611e043.js.map",
+  "Components/SwitchForm.js": "/packs/Components/SwitchForm-e676b49d865ff94b861c.js",
+  "Components/SwitchForm.js.map": "/packs/Components/SwitchForm-e676b49d865ff94b861c.js.map",
+  "Components/Year.js": "/packs/Components/Year-a91ce1d7d27b1bad56bb.js",
+  "Components/Year.js.map": "/packs/Components/Year-a91ce1d7d27b1bad56bb.js.map",
   "_/assets/images/back.png": "/packs/_/assets/images/back-e0bba25cdc19702897f35c533915e409.png",
   "application.js": "/packs/application-79a437643cf31a517a2d.js",
   "application.js.map": "/packs/application-79a437643cf31a517a2d.js.map",
-  "index.js": "/packs/index-397552d3dc3b364917fc.js",
-  "index.js.map": "/packs/index-397552d3dc3b364917fc.js.map"
+  "index.js": "/packs/index-36fe19481fdf035ac654.js",
+  "index.js.map": "/packs/index-36fe19481fdf035ac654.js.map"
 }

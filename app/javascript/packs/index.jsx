@@ -40,6 +40,7 @@ export default class App extends React.Component {
 	}	
 
 	newUser(majors, interests, year) {
+		console.log (12);
 		this.setState({year, majors, interests});
 	}
 
