@@ -8,6 +8,7 @@ import Register from './Components/Register';
 import Switch from './Components/Switch';
 import Majors from './Components/Switch';
 import Background from './../../assets/images/back.png';
+import store from '../Store/store';
 
 const registerStyle = {
 	backgroundImage: `url(${Background})`, 
@@ -61,7 +62,7 @@ export default class App extends React.Component {
 			    <div className = "switchContainer" style = {{background: 'transparent', animation: this.state.transform ? 'sliderSwitch 0.8s ease-in-out forwards' : 'none', display: this.state.transform ? 'flex' : 'none'} }>
 			    	<div className = "switchWhiteContainer" style = {{animation: this.state.finished ? 'slider 0.8s ease-in-out forwards' : 'none'}}>
 			    		<div className = "container"> 
-			      			<Switch onSubmit = {this.newUser} />
+			      			<Switch onSubmit = {this.newUser} store={store}/>
 			      		</div>
 			      	</div>
 			    </div>

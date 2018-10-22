@@ -19,7 +19,7 @@ export default class Register extends React.Component {
 	render() {
 		return (
 		<div>
-	  		<SwitchForm majors = 'Majors' onSubmit = {this.newUser} />
+	  		<SwitchForm majors = 'Majors' onSubmit = {this.newUser} store={this.props.store}/>
 		</div> 
 	)};
 }

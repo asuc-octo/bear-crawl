@@ -8,7 +8,7 @@ import Majors from './Majors.jsx';
 import Interests from './Interests.jsx';
 import { connect } from 'react-redux';
 
-class RegisterForm extends React.Component {
+class SwitchForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { 
@@ -152,7 +152,5 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-SwitchForm = connect(() => {}, mapDispatchToProps)(SwitchForm);
-
-export default SwitchForm;
+export default connect(() => {}, mapDispatchToProps)(SwitchForm);;
 	

@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Register from './Components/Register';
 import Background from './../../assets/images/back.png';
+import store from '../Store/store';
 
 
 const registerStyle = {

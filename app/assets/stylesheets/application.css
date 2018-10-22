@@ -79,7 +79,7 @@ textarea:focus, input:focus {
     color:white !important;
 }
 
-td {
+.td {
     text-align: center;
     margin: auto;
     display:block;
