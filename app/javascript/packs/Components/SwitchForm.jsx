@@ -6,12 +6,12 @@ import ReactDOM from 'react-dom';
 import Year from './Year.jsx';
 import Majors from './Majors.jsx';
 import Interests from './Interests.jsx';
+import { connect } from 'react-redux';
 
-export default class RegisterForm extends React.Component {
+class RegisterForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			majors: [], 
+		this.state = { 
 			interests: [],
 			year: "", 
 			animateMajor: false,
@@ -57,7 +57,6 @@ export default class RegisterForm extends React.Component {
 			}
 		}
 		this.setState({interests: newInterests, animateYear:true}, (prevState) => {
-			console.log(this.state.interets)
 		});
 		this.forceUpdate();
 	}
@@ -98,10 +97,7 @@ export default class RegisterForm extends React.Component {
 				newMajors = [...this.state.majors, selection];
 			}
 		}
-		this.setState({majors: newMajors}, (prevState) => {
-			console.log(this.state.majors)
-		});
-		this.forceUpdate();
+		this.props.setMajors(newMajors);
 	}
 
 	showFinished = (ev, val) => {
@@ -144,4 +140,19 @@ export default class RegisterForm extends React.Component {
 	)};
 }
 
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setMajors: (majors) => {
+			dispatch({
+				type: "SET_MAJORS", 
+				payload: majors
+			})
+		}
+	}
+}
+
+SwitchForm = connect(() => {}, mapDispatchToProps)(SwitchForm);
+
+export default SwitchForm;
 	

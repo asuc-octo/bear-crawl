@@ -35,7 +35,6 @@ export default class App extends React.Component {
 	};
 
 	changeStyle() {
-		console.log('hello');
 		transform = true; 
 	}	
 
