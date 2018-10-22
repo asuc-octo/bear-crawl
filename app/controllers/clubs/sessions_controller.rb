@@ -1,10 +1,11 @@
 class Clubs::SessionsController < Devise::SessionsController
     def create
-        @club = warder.authenticate!(auth_options)
+        @club = warden.authenticate!(auth_options)
         cookies.signed.permanent[:club_id] = @club.id
         cookies.signed.permanent[:is_signed_in] = "club"
         sign_in("club", @club)
-        redirect_to club_profiles_path(@club)
+        # redirect_to club_profiles_path(@club)
+        redirect_to root_path
     end
 
     def destroy

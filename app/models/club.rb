@@ -5,7 +5,7 @@ class Club < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
       :recoverable, :validatable, :confirmable
-         
+
   has_many :memberships
   has_many :member_students, through: :memberships, source: :student
   has_many :keywords
@@ -17,11 +17,11 @@ class Club < ApplicationRecord
 
   has_many :interests, as: :interestable, dependent: :destroy
 
-  
+
   def to_param
     username
   end
-  
+
   def create_username
     self.username = self.name.downcase.gsub(" ", "-")
   end

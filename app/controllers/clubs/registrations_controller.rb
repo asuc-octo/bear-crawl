@@ -2,11 +2,12 @@ class Clubs::RegistrationsController < Devise::ConfirmationsController
   def new
     @club = Club.new
   end
-  
+
   def create
     @club = Club.new(sign_up_params)
     if @club.save
-      redirect_to new_club_confirmation_path(request.parameters)
+      # redirect_to new_club_confirmation_path(request.parameters)
+      redirect_to root_path
     else
       clean_up_passwords @club
       set_minimum_password_length
@@ -19,10 +20,10 @@ class Clubs::RegistrationsController < Devise::ConfirmationsController
 
   private
   def sign_up_params
-    params.require(:club).permit(:email, :password, :password_confirmation, :name, :description, :website)
+    params.require(:club).permit(:email, :password, :password_confirmation, :name, :description, :website_url)
   end
 
   def account_update_params
-    params.require(:club).permit(:email, :password, :password_confirmation, :name, :description, :website)
+    params.require(:club).permit(:email, :password, :password_confirmation, :name, :description, :website_url)
   end
 end
