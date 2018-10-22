@@ -11,10 +11,9 @@ export default class Register extends React.Component {
 		this.newUser = this.newUser.bind(this)
 	}
 
-	newUser(name, password, success) {
-		this.setState(success:true);
-		this.props.onSubmit && this.props.onSubmit(name, password);
-		return;
+	newUser(majors, interests, years) {
+		this.setState({success:true});
+		this.props.onSubmit && this.props.onSubmit(majors, interests, years);
 	}
 
 	render() {

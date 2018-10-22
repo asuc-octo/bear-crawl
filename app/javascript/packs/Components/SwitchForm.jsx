@@ -16,6 +16,8 @@ export default class RegisterForm extends React.Component {
 			year: "", 
 			animateMajor: false,
 			animateYear: false,
+			finalAnimation: false,
+			finished: false,
 			majorOptions: 
 				[
 					'Business Administration',
@@ -38,9 +40,7 @@ export default class RegisterForm extends React.Component {
 
 
 	handleYear(year) {
-		console.log(12);
-		this.setState({year}); 	
-		this.props.onSubmit && this.props.onSubmit(this.state.majors, this.state.interests, this.state.year)
+		this.setState({year: year, finalAnimation: true}); 	
 	}
 
 	handleInterests = (ev, val) => {
@@ -104,10 +104,16 @@ export default class RegisterForm extends React.Component {
 		this.forceUpdate();
 	}
 
+	showFinished = (ev, val) => {
+		ev.persist();
+		ev.preventDefault();
+		this.props.onSubmit && this.props.onSubmit(this.state.majors, this.state.interests, this.state.year)
+	}
+
 
 	render() {
 		return (
-		<div>
+		<div className = 'finishedSwitcher'>
 			<td>
 				<i className ='fa fa-bar-chart' aria-hidden='true'></i>
 			</td>
@@ -125,10 +131,11 @@ export default class RegisterForm extends React.Component {
 		  				</div>
 		  				<div style = {{ animation: this.state.animateMajor ? 'opSlide 0.6s ease-in forwards' : 'none', display: this.state.animateMajor ? 'inline-block' : 'none' }} className = 'secondwidth50' >
 	  						<Interests onSubmit = {this.handleInterests} />
-	  						<input type = 'submit' value = 'Next' onClick = {this.showYear} className = 'inputSigninRegisterThird' style = {{display: this.state.animateMajor ? 'inline-block' : 'none', animation: this.state.animateYear ? 'slideOff 0.8s linear forwards' : 'none'}} />
+	  						<input type = 'submit' value = 'Next' onClick = {this.showYear} className = 'inputSigninRegisterThird' style = {{display: this.state.animateMajor ? 'inline-block' : 'none', animation: this.state.animateYear ? 'slideOff 0.4s linear forwards' : 'none'}} />
 	  					</div>
 	  					<div className = "yearHolder" style = {{animation: this.state.animateYear ? 'yearSwitch 0.6s ease-out forwards' :  'none', display: this.state.animateYear ? 'flex' : 'none'}}> 
 						 	<Year onChange = {this.handleYear} /> 
+						 	<input type = 'submit' value = 'Finish' onClick = {this.showFinished} className = 'inputSigninRegisterFourth' style = {{display: this.state.finalAnimation ? 'inline-block' : 'none', animation: this.state.finalAnimation ? 'slideLeft 0.2s linear forwards' : 'none'}} />
 						 </div>
 					</form>
 				</div>

@@ -25,7 +25,7 @@ export default class Majors extends React.Component {
 			{this.props.majorOptions.map((option) => { 
 				return (
 				<div className = 'width45'> 
-					<label key={option} for={option}>
+					<label key={option} htmlFor={option}>
 			            <input
 			              onChange={this.props.onChange}
 			              onClick={this.handleClick}

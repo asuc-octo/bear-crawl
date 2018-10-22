@@ -24,7 +24,8 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			transform:false,			
+			transform:false,
+			finished: false, 			
 			username: "", 
 			password: "",
 			majors: [], 
@@ -40,9 +41,11 @@ export default class App extends React.Component {
 	}	
 
 	newUser(majors, interests, year) {
-		console.log (12);
-		this.setState({year, majors, interests});
+		console.log(12);
+		this.setState({year, majors, interests, finished: true});
+		//make request here
 	}
+
 
 	render() {
 		return (
@@ -50,7 +53,7 @@ export default class App extends React.Component {
 			<div className = "extraContainer">
 			    <div className = "REGISTERCONTAINER" style = { registerStyle }>
 			    	<div className = "whiteContainer" style = {{animation: this.state.transform ? 'slider 0.5s ease-in-out forwards' : 'none'}}>
-			    		<div className = "container"> 
+			    		<div className = "container">
 			      			<Register username="Username" password="Password" onSubmit = {this.changeStyle} />
 			      		</div>
 			      	</div>
@@ -58,13 +61,14 @@ export default class App extends React.Component {
 			  </div>
 		    <div className = "extraContainer" style = {{backgroundImage: `url(${Background})`}}>
 			    <div className = "switchContainer" style = {{background: 'transparent', animation: this.state.transform ? 'sliderSwitch 0.8s ease-in-out forwards' : 'none', display: this.state.transform ? 'flex' : 'none'} }>
-			    	<div className = "switchWhiteContainer" >
+			    	<div className = "switchWhiteContainer" style = {{animation: this.state.finished ? 'slider 0.8s ease-in-out forwards' : 'none'}}>
 			    		<div className = "container"> 
 			      			<Switch onSubmit = {this.newUser} />
 			      		</div>
 			      	</div>
 			    </div>
 			 </div>
+			 
 		</div>
 		);
 	}

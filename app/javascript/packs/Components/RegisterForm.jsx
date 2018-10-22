@@ -57,6 +57,7 @@ export default class RegisterForm extends React.Component {
 								<input type = 'submit'  name = 'Register' onClick = {this.handleRegister} value='     Next     ' className = 'inputSigninRegister' />
 							</div>
 							<RegisterFooter />
+							🐻
 						</div>
 					</form>
 				</div>

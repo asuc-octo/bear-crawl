@@ -15,7 +15,7 @@ export default class Register extends React.Component {
 	}
 
 	sendInfo(name, password, success) {
-		this.setState(success:true);
+		this.setState({success:true});
 		this.props.onSubmit && this.props.onSubmit(name, password);
 		return;
 	}

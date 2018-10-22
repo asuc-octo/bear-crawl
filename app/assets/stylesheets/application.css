@@ -55,6 +55,16 @@
 	}
 }
 
+
+@keyframes slideLeft {
+	0% {
+		transform: translateX(-30px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
 :checked + span { 
 	animation: colorChange 0.2s ease-out forwards;
 	font-weight: bold;
@@ -184,14 +194,24 @@ td {
 
  .fas {
  	display: inline-block;
- 	font-size: 40px;
+ 	font-size: 45px;
  	color:white;
- 	margin-top: 35px;
+ 	margin-top: 25px;
  	padding:20px;
  	border-radius: 50%;
- 	width: 40px;
- 	height: 40px;
- 	border: 1px white solid;
+ 	width: 45px;
+ 	height: 45px;
+ 	animation: expander 0.4s linear forwards;
+ }
+
+ @keyframes expander {
+ 	0% {
+ 		transform: scale(0.5);
+ 	}
+ 	100% {
+ 		transform: scale(1);
+ 		 border: 1.5px white solid;
+ 	}
  }
 
  .extraSwitchContainer {
@@ -312,6 +332,22 @@ td {
 	margin-left: 50px;
 }
 
+.inputSigninRegisterFourth {
+	border:0;
+	color:white;
+	font-family: inherit;
+	background-color:rgba(238, 181, 77, 1);
+  	height: 2em;
+  	margin-left: 1em;
+	width:5em;
+	font-size:20px;
+	border-radius:5px;
+	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
+	position: static;
+	display: inline-block;
+	overflow: hidden;
+}
+
 .round {
 	position:fixed;
 	font-size: 14px;
@@ -347,6 +383,69 @@ select {
   border-radius: .25em;
   text-align: left;
 }
+
+svg {
+  width: 100px;
+  display: block;
+  margin: 40px auto 0;
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  &.circle {
+    -webkit-animation: dash .9s ease-in-out;
+    animation: dash .9s ease-in-out;
+  }
+  &.line {
+    stroke-dashoffset: 1000;
+    -webkit-animation: dash .9s .35s ease-in-out forwards;
+    animation: dash .9s .35s ease-in-out forwards;
+  }
+  &.check {
+    stroke-dashoffset: -100;
+    -webkit-animation: dash-check .9s .35s ease-in-out forwards;
+    animation: dash-check .9s .35s ease-in-out forwards;
+  }
+}
+
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+@keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
 
 select {
   width: 60%;

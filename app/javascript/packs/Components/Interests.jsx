@@ -31,7 +31,6 @@ export default class Interests extends React.Component {
 	render() {
 		return (
 			<div className = 'interestsSeparator'> 
-				<br />
 				<textarea type = 'textarea' rows = '20' className = 'interestsTextArea' onChange = {this.updateInterests} className = 'interestsContainer1'/>
 				<br />
 				<textarea type = 'textarea' rows = '20' className = 'interestsTextArea' onChange = {this.updateInterests} className = 'interestsContainer2'/>

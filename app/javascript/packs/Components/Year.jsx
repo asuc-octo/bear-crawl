@@ -18,7 +18,7 @@ export default class Register extends React.Component {
 
 	render() {
 		return (
-		<div className = 'select' onChange = {this.props.yearSelected}>
+		<div className = 'select' onChange = {this.yearSelected}>
 			<select defaultValue = {this.state.year} className = 'selectYear'> 
 				<option defaultValue = 'And your year?' disabled> And your year? </option>
 		  		<option defaultValue = 'Freshman' onChange = {this.yearSelected}> Freshman </option>

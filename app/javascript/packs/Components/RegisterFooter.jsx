@@ -22,7 +22,7 @@ export default class RegisterFooter extends React.Component {
 	render() {
 		return (
 		<div className = "wordSpacer">
-			<a href = '' className = "registerLink" onClick = {this.slideUpLogin}> Already have an account? Login. </a>
+			<a href = '' className = "registerLink" onClick = {this.slideUpLogin}> Already have an account? Login! </a>
 		</div> 
 	)};
 }
