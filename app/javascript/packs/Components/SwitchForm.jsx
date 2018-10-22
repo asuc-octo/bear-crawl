@@ -108,6 +108,7 @@ export default class RegisterForm extends React.Component {
 		ev.persist();
 		ev.preventDefault();
 		this.props.onSubmit && this.props.onSubmit(this.state.majors, this.state.interests, this.state.year)
+		this.props.on({finished: true});
 	}
 
 
