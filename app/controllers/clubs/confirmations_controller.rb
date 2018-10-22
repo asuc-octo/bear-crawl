@@ -1,4 +1,6 @@
 class Clubs::ConfirmationsController < Devise::RegistrationsController
+  before_action :verify_confirmation_token, only: [:show]
+  
   def new
     @club = Club.send_confirmation_instructions(confirm_params)
     if successfully_sent?(@club)
@@ -22,5 +24,13 @@ class Clubs::ConfirmationsController < Devise::RegistrationsController
 
   def confirm_params
     params.require(:club).permit(:email, :password, :password_confirmation)
+  end
+  
+  private
+  def verify_confirmation_token
+    club = Club.find_by(confirmation_token: params[:confirmation_token])
+    if club.nil?
+      redirect_to root_path
+    end
   end
 end

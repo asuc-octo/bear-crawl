@@ -26,13 +26,16 @@ class Clubs::PasswordsController < Devise::PasswordsController
       sign_in(:club, @club)
       cookies.signed.permanent[:club_id] = @club.id
       cookies.signed.permanent[:is_signed_in] = "club"
-      redirect_to club_profiles_path(@club)
+      redirect_to root_path
+      #redirect_to club_profiles_path(@club)
     else
       set_minimum_password_length
-      render json: {
-        "status": "error",
-        "message": "errors"
-        }, status: :unprocessable_entity
+      redirect_to new_club_password_path
+      
+#      render json: {
+#        "status": "error",
+#        "message": "errors"
+#        }, status: :unprocessable_entity
     end
   end
 
@@ -45,7 +48,7 @@ class Clubs::PasswordsController < Devise::PasswordsController
     params.require(:club).permit(:reset_password_token, :password, :password_confirmation)
   end
 
-  def verify_club_resets
+  def verify_club_reset
     if !Club.with_reset_password_token(params[:reset_password_token]).present?
       redirect_to root_path
     end
