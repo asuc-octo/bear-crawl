@@ -9,13 +9,14 @@ import Switch from './Components/Switch';
 import Majors from './Components/Switch';
 import Background from './../../assets/images/back.png';
 import store from '../Store/store';
+import { Provider } from 'react-redux';
 
 const registerStyle = {
 	backgroundImage: `url(${Background})`, 
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<App />,
+  ReactDOM.render(<Provider store={store}><App /></Provider>,
     document.body.appendChild(document.createElement('div'))
   )
 });

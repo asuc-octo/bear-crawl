@@ -1,41 +1,45 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 
 
-export default class Majors extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			majorList: [], 
-			clicked: false
+const Majors = (props) => {
+	function updateMajor(major) {
+		return ()=> {
+			const hasMajor = props.majors.indexOf(major) > -1;
+			props.updateMajor(major, hasMajor)
 		}
-		this.handleClick = this.handleClick.bind(this);
 	}
 
-	handleClick(ev, val) {
-		ev.persist();
-		this.setState({clicked: true})
-	}
-	
 
-	render() {
-		return (
+	return (
 		<div > 
-			{this.props.majorOptions.map((option) => { 
+			{props.majorOptions.map((option) => { 
 				return (
 				<div className = 'width45'> 
 					<label key={option} htmlFor={option}>
 			            <input
-			              onChange={this.props.onChange}
-			              onClick={this.handleClick}
+			              onChange={props.onChange}
+			              onClick={((o)=>updateMajor(o))(option)}
 			              value={option}
-			              checked={this.props.majors.indexOf(option) > -1}
+			              checked={props.majors.indexOf(option) > -1}
 			              type='checkbox' /> 
 			              <span>{option}</span>
 		          </label> 
 		        </div>
 	      	)})}
 		</div> 
-	)};
+	)
+};
+
+function mapStateToProps(dispatch) {
+	return {
+		updateMajor: (major, hasMajor) => dispatch({
+			type: hasMajor ? "ADD_MAJOR" : "REMOVE_MAJOR",
+			payload: major
+		})
+	}
 }
+
+export default connect(()=>{}, mapStateToProps)(Majors);

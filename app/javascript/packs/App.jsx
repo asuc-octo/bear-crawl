@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import Register from './Components/Register';
 import Background from './../../assets/images/back.png';
 import store from '../Store/store';
+import { Provider } from 'react-redux';
+
 
 
 const registerStyle = {
@@ -21,7 +23,7 @@ const none = {
 var transform = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<App />,
+  ReactDOM.render(<Provider store={store}><App /></Provider>,
     document.body.appendChild(document.createElement('div'))
   )
 });

@@ -1,5 +1,3 @@
-import majorReducer from './Reducers/majorReducer.jsx';
-
 import { createStore } from 'redux';
 import majorReducer from './Reducers/majorReducer';
 

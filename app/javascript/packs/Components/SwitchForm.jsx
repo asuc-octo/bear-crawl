@@ -6,13 +6,13 @@ import ReactDOM from 'react-dom';
 import Year from './Year.jsx';
 import Majors from './Majors.jsx';
 import Interests from './Interests.jsx';
-import { connect } from 'react-redux';
 
-class SwitchForm extends React.Component {
+export default class SwitchForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { 
 			interests: [],
+			majors: [],
 			year: "", 
 			animateMajor: false,
 			animateYear: false,
@@ -97,7 +97,7 @@ class SwitchForm extends React.Component {
 				newMajors = [...this.state.majors, selection];
 			}
 		}
-		this.props.setMajors(newMajors);
+		this.setState({majors: newMajors});
 	}
 
 	showFinished = (ev, val) => {
@@ -140,17 +140,4 @@ class SwitchForm extends React.Component {
 	)};
 }
 
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		setMajors: (majors) => {
-			dispatch({
-				type: "SET_MAJORS", 
-				payload: majors
-			})
-		}
-	}
-}
-
-export default connect(() => {}, mapDispatchToProps)(SwitchForm);;
 	
