@@ -1,17 +1,17 @@
-class Students::ProfilesController < ApplicationController  
+class Clubs::ProfilesController < ApplicationController  
   before_action :verify_club_exists, only: [:show]
   
   def show
-    @student
+    @club
   end
   
   def update
   end
   
   private
-  def verify_student_exists
-    @student = Student.find_by(username: params[:id])
-    if @student.nil?
+  def verify_club_exists
+    @club = Club.find_by(username: params[:id])
+    if @club.nil?
       redirect_to root_path
     end
   end
