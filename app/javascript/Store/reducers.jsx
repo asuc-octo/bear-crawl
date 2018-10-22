@@ -4,4 +4,4 @@ import { createStore } from 'redux';
 
 const store = createStore(majorReducer);
 
-default export store
+export default store
