@@ -32,12 +32,12 @@ Rails.application.routes.draw do
              }
   
   
-  resource :student do
-    resources :profiles, controller: 'student/profiles', only: [:show]
+  resource :students do
+    resources :profiles, controller: 'students/profiles', only: [:show, :update]
   end
   
-  resource :club do
-    resources :profiles, controller: 'club/profiles', only: [:show]
+  resource :clubs do
+    resources :profiles, controller: 'clubs/profiles', only: [:show]
   end
   
   resources :search, only: [:index]

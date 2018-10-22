@@ -16,6 +16,7 @@ RSpec.describe 'Logging in a student', type: :feature, js:true do
       end
       expect(page).to have_content("Hello React!")
       expect(page).to have_current_path(root_path)
+      
       expect(page.driver.browser.manage.cookie_named('student_id')).to_not eq(nil)
       expect(page.driver.browser.manage.cookie_named('is_signed_in')).to_not eq(nil)
     end
