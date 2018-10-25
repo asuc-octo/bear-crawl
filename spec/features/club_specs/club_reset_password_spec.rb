@@ -1,31 +1,17 @@
 require 'rails_helper' 
 
 RSpec.describe "Resetting a password", type: :feature, js:true do
-  let!(:club) {create(:club)}
-
-  before do
-      visit new_club_password_path
-  end
-
-  context "with an invalid club email" do
-    it 'sends no email' do
-      delivery_before = ActionMailer::Base.deliveries.first
-      fill_in 'Email', with: "invalid@invalid.com"
-      click_on 'Send me reset password instructions'
-      sleep(inspection_time=0.5)
-      expect(ActionMailer::Base.deliveries.first).to eq(delivery_before)
-    end
-  end
-
   context "with an existing club" do
+    let!(:club) {create(:club)}
 
     before do
+      visit new_club_password_path
       fill_in 'Email', with: club.email
       click_on 'Send me reset password instructions'
       sleep(inspection_time=0.5)
       visit(links_in_email(ActionMailer::Base.deliveries.first)[0].gsub("http://localhost:3000", ""))
     end
-
+    
     it 'does not reset password with wrong token' do
       visit '/clubs/password/edit?reset_password_token=faketoken'
       expect(page).to have_content 'Hello React'
@@ -43,7 +29,7 @@ RSpec.describe "Resetting a password", type: :feature, js:true do
       expect(page.driver.browser.manage.cookie_named('club_id')).to eq(nil)
       expect(page.driver.browser.manage.cookie_named('is_signed_in')).to eq(nil)
     end
-
+    
     it 'updates club password' do
       fill_in "New password", with: 'newpassword'
       fill_in "Confirm new password", with: 'newpassword'
@@ -54,6 +40,5 @@ RSpec.describe "Resetting a password", type: :feature, js:true do
       expect(page.driver.browser.manage.cookie_named('club_id')).to_not eq(nil)
       expect(page.driver.browser.manage.cookie_named('is_signed_in')).to_not eq(nil)
     end
-
   end
 end

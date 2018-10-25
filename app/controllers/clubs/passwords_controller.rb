@@ -9,7 +9,7 @@ class Clubs::PasswordsController < Devise::PasswordsController
       cookies.delete :is_signed_in
       redirect_to root_path
     else
-      redirect_to root_path
+      redirect_to new_club_password_path
     end
   end
 
