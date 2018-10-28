@@ -162,7 +162,7 @@ textarea:focus, input:focus {
 	animation-timing-function: ease-out;
 }
 
- .REGISTERCONTAINER {
+ .regContainer {
  	position: absolute;
  	top: 0;
  	left: 0;

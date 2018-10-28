@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
-export default class RegisterFooter extends React.Component {
+export default class RegisterFooter extends Component {
 	constructor(props) {
 		super(props);
 		this.setState = {
@@ -10,11 +9,11 @@ export default class RegisterFooter extends React.Component {
 		}
 	}
 
-	slideUpForgot = (ev, val) => {
+	slideUpForgot = () => {
 		console.log('slideUpForgot');
 	}
 
-	slideUpLogin = (ev, val) => {
+	slideUpLogin = () => {
 		console.log('slideUpLogin');
 	}
 

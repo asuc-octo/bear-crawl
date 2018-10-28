@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import { connect } from 'react-redux';
 
 
@@ -8,17 +7,16 @@ const Majors = (props) => {
 	function updateMajor(major) {
 		return ()=> {
 			const hasMajor = props.majors.indexOf(major) > -1;
-			props.updateMajor(major, hasMajor)
+			//props.updateMajor(major, hasMajor)
 		}
 	}
-
 
 	return (
 		<div > 
 			{props.majorOptions.map((option) => { 
 				return (
-				<div className = 'width45'> 
-					<label key={option} htmlFor={option}>
+				<div className = 'width45' key={option}> 
+					<label htmlFor={option}>
 			            <input
 			              onChange={props.onChange}
 			              onClick={((o)=>updateMajor(o))(option)}
@@ -42,4 +40,4 @@ function mapStateToProps(dispatch) {
 	}
 }
 
-export default connect(()=>{}, mapStateToProps)(Majors);
+export default connect(()=>({}), mapStateToProps)(Majors);

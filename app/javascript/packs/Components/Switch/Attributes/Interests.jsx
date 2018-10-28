@@ -1,31 +1,22 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 
 
-export default class Interests extends React.Component {
+export default class Interests extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			interestDescription: ""
 		}
-		this.handleButtonClick = this.handleButtonClick.bind(this);
 		this.updateInterests = this.updateInterests.bind(this);
 	}
 
 
-	updateInterests(ev, val) {
+	updateInterests(ev) {
 		ev.persist();
-		this.setState({interestDescription: 
-			ev.target.val});
+		this.setState({interestDescription: ev.target.val});
 
 	}
-
-	handleButtonClick(ev, val) {
-		ev.persist();
-		ev.preventDefault();
-		this.props.onSubmit && this.props.onSubmit(this.state.interestDescription);
-	}	
 	
 
 	render() {

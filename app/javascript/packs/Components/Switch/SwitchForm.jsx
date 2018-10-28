@@ -1,13 +1,10 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
-// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
-// of the page.
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import Year from './Year.jsx';
-import Majors from './Majors.jsx';
-import Interests from './Interests.jsx';
+import React from 'react';
+import Year from './Attributes/Year.jsx';
+import Majors from './Attributes/Majors.jsx';
+import Interests from './Attributes/Interests.jsx';
+import { connect } from 'react-redux';
 
-export default class SwitchForm extends React.Component {
+class SwitchForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { 
@@ -40,10 +37,10 @@ export default class SwitchForm extends React.Component {
 
 
 	handleYear(year) {
-		this.setState({year: year, finalAnimation: true}); 	
+		this.setState({year}); 	
 	}
 
-	handleInterests = (ev, val) => {
+	handleInterests = (ev) => {
 		ev.persist();
 		const selection = ev.target.value;
 		let newInterests;
@@ -61,14 +58,14 @@ export default class SwitchForm extends React.Component {
 		this.forceUpdate();
 	}
 
-	handleSubmit = (ev, val) => {
+	handleSubmit = (ev) => {
 		ev.persist();
 		ev.preventDefault();
 		this.props.onSubmit && this.props
 			.onSubmit(this.state.majors, this.state.interests, this.state.year);
 	}
 
-	showMajor = (ev, val) => {
+	showMajor = (ev) => {
 		ev.persist();
 		ev.preventDefault();
 		this.setState({
@@ -76,15 +73,13 @@ export default class SwitchForm extends React.Component {
 		});
 	}
 
-	showYear = (ev, val) => {
-		ev.persist();
-		ev.preventDefault();
+	showYear = () => {
 		this.setState({
 			animateYear: true
 		});
 	}
 
-	handleMajors = (ev, val) => {
+	handleMajors = (ev) => {
 		ev.persist();
 		const selection = ev.target.value;
 		let newMajors;
@@ -100,20 +95,20 @@ export default class SwitchForm extends React.Component {
 		this.setState({majors: newMajors});
 	}
 
-	showFinished = (ev, val) => {
-		ev.persist();
-		ev.preventDefault();
-		this.props.onSubmit && this.props.onSubmit(this.state.majors, this.state.interests, this.state.year)
-		this.props.on({finished: true});
+	showFinished = () => {
+		const {year, interests, majors} = this.state;
+		console.log("ARRIVED");
+		this.setState({finalAnimation: true});
+		this.props.finishAttrs(year, interests, majors);
 	}
 
 
 	render() {
 		return (
 		<div className = 'finishedSwitcher'>
-			<td>
+			<div className="td">
 				<i className ='fa fa-bar-chart' aria-hidden='true'></i>
-			</td>
+			</div>
 			<h1 className = 'registerTextLarge'>All about you</h1>
 			<div className = 'container' />
 		  		<div className = 'contained50'>
@@ -124,15 +119,17 @@ export default class SwitchForm extends React.Component {
 		  				</div>
 		  				<div className = 'width50' style = {{ animation: 'opSlideDown 0.8s linear forwards'}} >
 		  					<Majors majorOptions = {this.state.majorOptions} majors = {this.state.majors} onChange = {this.handleMajors} className = 'registerFormContainer'/>
-		  					<input type = 'submit' onClick = {this.showMajor} className = 'inputSigninRegisterSecond' style = {{display: this.state.animateMajor ? 'none' : 'inline-block' }} value = 'Next' />
+		  					<div type = 'submit' onClick = {this.showMajor} className = 'inputSigninRegisterSecond' style = {{display: this.state.animateMajor ? 'none' : 'inline-block' }} value = 'Next' ></div>
 		  				</div>
 		  				<div style = {{ animation: this.state.animateMajor ? 'opSlide 0.6s ease-in forwards' : 'none', display: this.state.animateMajor ? 'inline-block' : 'none' }} className = 'secondwidth50' >
 	  						<Interests onSubmit = {this.handleInterests} />
-	  						<input type = 'submit' value = 'Next' onClick = {this.showYear} className = 'inputSigninRegisterThird' style = {{display: this.state.animateMajor ? 'inline-block' : 'none', animation: this.state.animateYear ? 'slideOff 0.4s linear forwards' : 'none'}} />
+	  						<div type = 'submit' value = 'Next' onClick = {this.showYear} className = 'inputSigninRegisterThird' style = {{display: this.state.animateMajor ? 'inline-block' : 'none', animation: this.state.animateYear ? 'slideOff 0.4s linear forwards' : 'none'}} ></div>
 	  					</div>
 	  					<div className = "yearHolder" style = {{animation: this.state.animateYear ? 'yearSwitch 0.6s ease-out forwards' :  'none', display: this.state.animateYear ? 'flex' : 'none'}}> 
 						 	<Year onChange = {this.handleYear} /> 
-						 	<input type = 'submit' value = 'Finish' onClick = {this.showFinished} className = 'inputSigninRegisterFourth' style = {{display: this.state.finalAnimation ? 'inline-block' : 'none', animation: this.state.finalAnimation ? 'slideLeft 0.2s linear forwards' : 'none'}} />
+							 <div onClick = {this.showFinished} className = 'inputSigninRegisterFourth' style = {{display: this.state.finalAnimation ? 'inline-block' : 'none', animation: this.state.finalAnimation ? 'slideLeft 0.2s linear forwards' : 'none'}} ></div>
+
+						 	{/* <input type = 'submit' value = 'Finish' onClick = {this.showFinished} className = 'inputSigninRegisterFourth' style = {{display: this.state.finalAnimation ? 'inline-block' : 'none', animation: this.state.finalAnimation ? 'slideLeft 0.2s linear forwards' : 'none'}} /> */}
 						 </div>
 					</form>
 				</div>
@@ -140,4 +137,13 @@ export default class SwitchForm extends React.Component {
 	)};
 }
 
-	
+function mapStateToProps(dispatch) {
+	return {
+		finishAttrs: (year, interests, majors) => dispatch({
+			type: "SET_ATTRS", 
+			payload: {year, interests, majors}
+		})
+	}
+}
+
+export default connect(()=>({}), mapStateToProps)(SwitchForm);
