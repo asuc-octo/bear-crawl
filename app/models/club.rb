@@ -10,6 +10,7 @@ class Club < ApplicationRecord
   has_many :member_students, through: :memberships, source: :student
   has_many :keywords
   has_many :events
+  has_many :categories
 
 
   validates :description, :website_url, :presence => true
