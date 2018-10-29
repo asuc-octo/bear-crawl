@@ -61,9 +61,12 @@ group :development, :test do
   gem 'launchy'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper', '~> 1.2.0'
-  
-  gem 'pry-rails' 
+
+  gem 'pry-rails'
   gem 'factory_bot_rails'
+
+  gem 'elasticsearch-model'
+  gem 'elasticsearch-rails'
 end
 
 group :test do
