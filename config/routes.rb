@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :clubs, 
+  devise_for :clubs,
              path: 'clubs',
              path_names: {
                sign_in: 'login',
@@ -30,18 +30,18 @@ Rails.application.routes.draw do
                confirmations: 'students/confirmations',
                passwords: 'students/passwords'
              }
-  
-  
+
+
   resource :students do
     resources :profiles, controller: 'students/profiles', only: [:show, :update]
   end
-  
+
   resource :clubs do
     resources :profiles, controller: 'clubs/profiles', only: [:show]
   end
-  
+
   resources :search, only: [:index]
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'
 end
