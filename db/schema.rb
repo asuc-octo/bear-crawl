@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_021225) do
     t.bigint "club_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["club_id", "label"], name: "index_categories_on_club_id_and_label"
     t.index ["club_id"], name: "index_categories_on_club_id"
   end
 
@@ -79,7 +80,6 @@ ActiveRecord::Schema.define(version: 2018_10_29_021225) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["club_id"], name: "index_memberships_on_club_id"
-    t.index ["student_id", "club_id"], name: "index_memberships_on_student_id_and_club_id", unique: true
     t.index ["student_id"], name: "index_memberships_on_student_id"
   end
 

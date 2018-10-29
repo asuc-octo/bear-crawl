@@ -1,8 +1,12 @@
 class Club < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+
   before_save :create_username
-  
+
   devise :database_authenticatable, :registerable,
       :recoverable, :validatable, :confirmable
 
@@ -17,6 +21,34 @@ class Club < ApplicationRecord
   validates :name, :presence => true, :uniqueness => true
 
   has_many :interests, as: :interestable, dependent: :destroy
+
+  def as_indexed_json(options = {})
+    self.as_json(
+      only: [:name],
+      include:  {
+        categories: {
+          only: [:label]
+        },
+        keywords: {
+          only: [:label]
+        },
+        interests: {
+          only: [:label]
+        }
+      }
+    )
+  end
+
+  def self.search_by(searchquery)
+    self.__elasticsearch__.search(
+    query: {
+      multi_match: {
+        query: searchquery,
+        fields: ['name', 'categories.label', 'keywords.label', 'interests.label']
+        }
+      }
+    ).results
+  end
 
 
   def to_param
