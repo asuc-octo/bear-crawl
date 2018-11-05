@@ -1,0 +1,20 @@
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+
+
+    <div> Categories </div>
+    <%= radio_button_tag(:category, "sport") %>
+    <%= label_tag(:category_sport, "Sport") %>
+    <%= radio_button_tag(:category, "business") %>
+    <%= label_tag(:category_business, "Business") %>
+    <div> Filters </div>
+    <%= check_box_tag("filter[]", "baseball") %>
+    <%= label_tag("filter[]", "Baseball") %>
+    <%= check_box_tag("filter[]", "machine learning") %>
+    <%= label_tag("filter[]", "Machine Learning") %>
+    <br></br>
+
+  <%= submit_tag("Search") %>
+  <%= params.inspect %>
+<% end %>
