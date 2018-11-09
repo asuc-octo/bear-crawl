@@ -96,11 +96,12 @@ class SwitchForm extends React.Component {
 		this.setState({majors: newMajors});
 	}
 
-	showFinished = () => {
+	showFinished = (ev) => {
+		ev.preventDefault();
 		const {year, interests, majors} = this.state;
 		console.log("ARRIVED");
 		this.setState({finalAnimation: true});
-		this.props.finalSubmit && this.props.finalSubmit();
+		this.props.onSubmit && this.props.onSubmit();
 		this.props.finishAttrs(year, interests, majors);
 	}
 
@@ -129,7 +130,7 @@ class SwitchForm extends React.Component {
 	  					</div>
 	  					<div className = 'yearHolder' style = {{ animation: this.state.animateYear ? 'yearSwitch 0.6s ease-out forwards' :  'none', display: this.state.animateYear ? 'flex' : 'none' }}> 
 						 	<Year onChange = {this.handleYear} /> 
-						 	<input type = 'submit' value = 'Finish' onClick = {this.showFinished} className = 'inputSigninRegisterFourth' style = {{display: this.state.animateYearButton ? 'inline-block' : 'none', animation: this.state.animateYearButton ? 'slideLeft 0.2s linear forwards' : 'none'}} /> *}
+						 	<input type = 'submit' value = 'Finish' onClick = {this.showFinished} className = 'inputSigninRegisterFourth' style = {{display: this.state.animateYearButton ? 'inline-block' : 'none', animation: this.state.animateYearButton ? 'slideLeft 0.2s linear forwards' : 'none'}} />
 						 </div>
 					</form>
 				</div>

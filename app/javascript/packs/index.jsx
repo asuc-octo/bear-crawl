@@ -32,6 +32,7 @@ export default class App extends React.Component {
 		this.noPass = this.noPass.bind(this);
 		this.userFound = this.userFound.bind(this);
 		this.passFound = this.passFound.bind(this);
+		this.phaseTwoSubmit = this.phaseTwoSubmit.bind(this);
 	};
 
 	componentDidMount() {
@@ -61,6 +62,10 @@ export default class App extends React.Component {
 		this.setState({noPass: true});
 	}
 
+	phaseTwoSubmit() {
+		this.setState({phaseTwoDone: true});
+	}
+
 	componentWillUnmount() {
 		this.subscription();
 	}
@@ -87,7 +92,7 @@ export default class App extends React.Component {
 			    <div className = "switchContainer" style = {{ background: 'transparent', animation: this.state.phaseOneDone ? 'sliderSwitch 0.8s ease-in-out forwards' : 'none', display: this.state.phaseOneDone ? 'flex' : 'none' }}>
 			    	<div className = "switchWhiteContainer" style = {{ animation: this.state.phaseTwoDone ? 'slider 0.8s ease-in-out forwards' : 'none' }}>
 			    		<div className = "container"> 
-			      			<SwitchForm finalSubmit = {this.finalSubmit} />
+			      			<SwitchForm onSubmit = {this.phaseTwoSubmit} />
 			      		</div>
 			      	</div>
 			    </div>
