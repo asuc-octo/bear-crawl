@@ -4,10 +4,7 @@ import RegisterForm from './Components/Register/RegisterForm';
 import SwitchForm from './Components/Switch/SwitchForm';
 import Background from './../../assets/images/back.png';
 import store from '../Store/store';
-import FlashMessage from 'react-flash-message';
 import { Provider } from 'react-redux';
-import NameError from './NameError.jsx';
-import PasswordError from './PasswordError.jsx';
 
 const registerStyle = {
 	backgroundImage: `url(${Background})`, 
@@ -26,12 +23,8 @@ export default class App extends React.Component {
 			phaseOneDone: false,
 			phaseTwoDone: false, 
 			noName: false, 
-			noPass: false,			
+			noPass: false,				
 		}
-		this.noUser = this.noUser.bind(this);
-		this.noPass = this.noPass.bind(this);
-		this.userFound = this.userFound.bind(this);
-		this.passFound = this.passFound.bind(this);
 	};
 
 	componentDidMount() {
@@ -43,17 +36,18 @@ export default class App extends React.Component {
 				this.setState({phaseTwoDone: true})
 			}
 		})
+
+		this.noUser = this.noUser.bind(this);
+		this.noPass = this.noPass.bind(this);
+
 	}
 
-	userFound() {
-		this.setState({noName: false});
-	}
-
-	passFound() {
-		this.setState({noPass: false});
+	componentWillUnmount() {
+		this.subscription();
 	}
 
 	noUser() {
+		console.log(12);
 		this.setState({noName: true});
 	}
 
@@ -68,38 +62,39 @@ export default class App extends React.Component {
 	render() {
 		return (
 		<div> 
-			<div className = "errorCenter" style = {{ display: this.state.noPass ? 'flex' : 'none'}}>
+			<div className = "passwordErrorContainer" style = {{ display: this.state.noPass ? 'fixed' : 'none' }}>
 				<PasswordError />
 			</div>
-			<div className = "usernameErrorContainer" style = {{ display: this.state.noName ? 'flex' : 'none' }}>
+			<div className = "usernameErrorContainer" style = {{ display: this.state.noName ? 'fixed' : 'none' }}>
 				<NameError />
-			</div>	
-				<div className = "extraContainer">
+			</div>			
+			<div className = "extraContainer">
 			    <div className = "regContainer" style = { registerStyle }>
-			    	<div className = "whiteContainer" style = {{ animation: this.state.phaseOneDone ? 'slider 0.5s ease-in-out forwards' : 'none' }}>
+			    	<div className = "whiteContainer" style = {{animation: this.state.phaseOneDone ? 'slider 0.5s ease-in-out forwards' : 'none'}}>
 			    		<div className = "container">
-			      			<RegisterForm username="Username" password="Password" noUser = {this.noUser} noPass = {this.noPass} userFound = {this.userFound} passFound = {this.passFound} />
+			      			<RegisterForm username="Username" password="Password" noUser = {this.noUser} noPass = {this.noPass} />
 			      		</div>
 			      	</div>
 			    </div>
 			  </div>
 		    <div className = "extraContainer" style = {{ backgroundImage: `url(${Background})` }}>
-			    <div className = "switchContainer" style = {{ background: 'transparent', animation: this.state.phaseOneDone ? 'sliderSwitch 0.8s ease-in-out forwards' : 'none', display: this.state.phaseOneDone ? 'flex' : 'none' }}>
-			    	<div className = "switchWhiteContainer" style = {{ animation: this.state.phaseTwoDone ? 'slider 0.8s ease-in-out forwards' : 'none' }}>
+			    <div className = "switchContainer" style = {{background: 'transparent', animation: this.state.phaseOneDone ? 'sliderSwitch 0.8s ease-in-out forwards' : 'none', display: this.state.phaseOneDone ? 'flex' : 'none'} }>
+			    	<div className = "switchWhiteContainer" style = {{animation: this.state.phaseTwoDone ? 'slider 0.8s ease-in-out forwards' : 'none'}}>
 			    		<div className = "container"> 
-			      			<SwitchForm finalSubmit = {this.finalSubmit} />
+			      			<SwitchForm />
 			      		</div>
 			      	</div>
 			    </div>
 			 </div>
-			 <div className = "extracontainer" style = {{ backgroundImage: `url(${Background})` }}> 
-			 	<div className = "switchContainer2" style = {{ background: 'transparent', animation: this.state.phaseTwoDone ? 'sliderSwitch2 0.8s ease-in-out  forwards' : 'none', display: this.state.phaseTwoDone ? 'flex' : 'none' }} >
+			 <div className = "extracontainer" style = {{backgroundImage: `url(${Background})`}}>
+			 	<div className = "switchContainer2" style = {{background: 'transparent', animation: this.state.phaseTwoDone ? 'sliderSwitch2 0.8s ease-in-out  forwards' : 'none', display: this.state.phaseTwoDone ? 'flex' : 'none'}} >
 			 		<div className = "whiteContainer" >
 					 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
 							  <circle className="path circle" fill="none" stroke="#73AF55" strokeWidth="6" strokeMiterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
 							  <polyline className="path check" fill="none" stroke="#73AF55" strokeWidth="6" strokeLinecap="round" strokeMiterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
 						</svg>
 					</div>
+					
 				</div>
 			</div>
 		</div>

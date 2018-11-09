@@ -2,26 +2,54 @@ import React, { Component } from 'react';
 import RegisterFooter from './RegisterFooter';
 import { connect } from 'react-redux';
 
+
 class RegisterForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			name: "", 
-			password: "", 
+			password: "",
 		}
 	}
 
 	handlePassword = (ev) => {
-		this.setState({password:ev.target.value});
+		let password = ev.target.value;
+		if (password.length == 0) {
+			this.props.noUser && this.props.noPass();
+			this.setState({password: password, noPass: true});
+			return;
+		}
+		this.props.passFound && this.props.passFound();
+		this.setState({password:ev.target.value, noPass: false});
 	}
 
 	handleUsername = (ev) => {
-		this.setState({name:ev.target.value}); 
+		let username = ev.target.value;
+		if (ev.target.value.length == 0) {
+			this.props.noUser && this.props.noUser();
+			this.setState({name:username, noName: true});
+			return;
+		}
+		this.props.userFound && this.props.userFound();
+		this.setState({name:ev.target.value, noName: false});
 	}
 
-	handleRegister = () => {
-		let {password, name} = this.state;
-		this.props.updateProfile(password, name);
+	handleRegister = (ev, val) => {
+		ev.persist();
+		ev.preventDefault();
+		let {name, password} = this.state;
+		if (this.state.name.length == 0) {
+			this.props.noUser && this.props.noUser();
+			return;
+		} else if (this.state.password.length == 0) {
+			this.props.noPass && this.props.noPass();
+			return;
+		}
+		else {
+			this.props.userFound && this.props.userFound();
+			this.props.passFound && this.props.passFound();
+			this.props.updateProfile(password, name);
+		}
 	}
 
 	render() {
@@ -43,8 +71,7 @@ class RegisterForm extends Component {
 							<input onChange = {this.handlePassword} value={this.state.password} name = 'Password' type = 'password' placeholder = 'Password' className = 'passwordRegister' />
 							<hr className = 'registerLine' />
 							<div className = 'signinRegister'> 
-								<div className = 'inputSigninRegister' onClick = {this.handleRegister}></div>
-								{/* <input type = 'submit'  name = 'Register' onClick = {this.handleRegister} value='     Next     ' className = 'inputSigninRegister' /> */}
+								<input type = 'submit'  name = 'Register' onClick = {this.handleRegister} value='     Next     ' className = 'inputSigninRegister' />
 							</div>
 							<RegisterFooter />
 							🐻

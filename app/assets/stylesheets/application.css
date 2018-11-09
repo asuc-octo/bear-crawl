@@ -75,6 +75,52 @@ span {
 	font-size: 16px;
 }
 
+.passwordErrorContainer {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin: 0 auto;
+	width: 400px;
+	height: 28px;
+	color: rgb(230, 233, 235);
+	background-color: #e66767;
+	border-radius: 2px;
+	border-color: red;
+	border-width: 1px;
+	z-index: 100;
+}
+
+.errorCenter {
+	justify-content: center;
+}
+
+.nameErrorText {
+	margin: 0 auto;
+	font-size: 20px;
+	line-height: 28px;
+}
+
+.passwordErrorText {
+	margin: 0 auto;
+	font-size: 20px;
+	line-height: 28px;
+}
+
+.nameErrorContainer {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin: 0 auto;
+	width: 400px;
+	height: 28px;
+	color: rgb(230, 233, 235);
+	background-color: #e66767;
+	border-radius: 2px;
+	border-color: red;
+	border-width: 1px;
+	z-index: 100;
+}
+
 textarea:focus, input:focus {
     color:white !important;
 }

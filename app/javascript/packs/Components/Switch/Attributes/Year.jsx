@@ -4,7 +4,7 @@ const YEARS = [
 	'Freshman', 'Sophomore', 'Junior', 'Senior', '5th year Senior', 'Graduate Student'
 ]
 
-export default class Register extends Component {
+export default class Year extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

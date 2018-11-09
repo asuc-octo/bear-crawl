@@ -11,13 +11,11 @@ export default class Interests extends Component {
 		this.updateInterests = this.updateInterests.bind(this);
 	}
 
-
 	updateInterests(ev) {
 		ev.persist();
 		this.setState({interestDescription: ev.target.val});
 
 	}
-	
 
 	render() {
 		return (
