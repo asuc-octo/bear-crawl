@@ -48,7 +48,7 @@ class RegisterForm extends Component {
 		else {
 			this.props.userFound && this.props.userFound();
 			this.props.passFound && this.props.passFound();
-			this.props.updateProfile(password, name);
+			this.props.updateProfile(name, password);
 		}
 	}
 

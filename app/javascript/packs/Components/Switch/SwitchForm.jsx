@@ -97,7 +97,7 @@ class SwitchForm extends React.Component {
 	}
 
 	showFinished = (ev) => {
-		ev.preventDefault();
+		ev.preventDefault()
 		const {year, interests, majors} = this.state;
 		console.log("ARRIVED");
 		this.setState({finalAnimation: true});

@@ -61,13 +61,7 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-		<div> 
-			<div className = "passwordErrorContainer" style = {{ display: this.state.noPass ? 'fixed' : 'none' }}>
-				<PasswordError />
-			</div>
-			<div className = "usernameErrorContainer" style = {{ display: this.state.noName ? 'fixed' : 'none' }}>
-				<NameError />
-			</div>			
+		<div> 		
 			<div className = "extraContainer">
 			    <div className = "regContainer" style = { registerStyle }>
 			    	<div className = "whiteContainer" style = {{animation: this.state.phaseOneDone ? 'slider 0.5s ease-in-out forwards' : 'none'}}>

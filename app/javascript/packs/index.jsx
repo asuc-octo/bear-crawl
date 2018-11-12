@@ -8,6 +8,7 @@ import FlashMessage from 'react-flash-message';
 import { Provider } from 'react-redux';
 import NameError from './NameError.jsx';
 import PasswordError from './PasswordError.jsx';
+import NameForm from './Components/Name/NameForm.jsx'
 
 const registerStyle = {
 	backgroundImage: `url(${Background})`, 
@@ -70,6 +71,7 @@ export default class App extends React.Component {
 		this.subscription();
 	}
 
+
 	render() {
 		return (
 		<div> 
@@ -97,13 +99,16 @@ export default class App extends React.Component {
 			      	</div>
 			    </div>
 			 </div>
-			 <div className = "extracontainer" style = {{ backgroundImage: `url(${Background})` }}> 
+			 <div className = "extraContainer" style = {{ backgroundImage: `url(${Background})` }}> 
 			 	<div className = "switchContainer2" style = {{ background: 'transparent', animation: this.state.phaseTwoDone ? 'sliderSwitch2 0.8s ease-in-out  forwards' : 'none', display: this.state.phaseTwoDone ? 'flex' : 'none' }} >
-			 		<div className = "whiteContainer" >
+			 		<div className = "nameWhiteContainer" >
 					 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
 							  <circle className="path circle" fill="none" stroke="#73AF55" strokeWidth="6" strokeMiterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
 							  <polyline className="path check" fill="none" stroke="#73AF55" strokeWidth="6" strokeLinecap="round" strokeMiterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
 						</svg>
+						<div className = "nameContainer">
+							<NameForm />
+						</div>
 					</div>
 				</div>
 			</div>

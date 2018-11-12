@@ -23,7 +23,7 @@
  input, select, textarea{
     color:white !important;
 }
-
+	
 @keyframes colorChange {
 	0% {
 		color: white;
@@ -269,6 +269,17 @@ textarea:focus, input:focus {
  	font-size: 15px;
  }
 
+ .faceUploadInput {
+ 	margin-top: 40px;
+ 	display: flex;
+ 	flex-direction: row;
+ 	justify-content: center;
+ }
+
+ .faceUploadText {
+ 	color: white;
+ 	font-family: inherit;
+ }
 
  .fas {
  	display: inline-block;
@@ -322,11 +333,38 @@ textarea:focus, input:focus {
  	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
  }
 
+ .nameContainer {
+
+ }
+
+ .nameWhiteContainer {
+ 	background-color: rgba(18, 18, 18, 0.88);
+ 	border-radius: 10px;
+ 	margin-top:20px;
+ 	margin-top:20px;
+ 	height:600px;
+ 	width:400px;
+ 	animation: slideUp;
+	animation-duration: 0.6s;
+	animation-timing-function: ease-in-out;
+ 	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
+ }
+
 .registerText {
 	color:white;
 	font-size:33px;
 	margin-left: 30px;
 	text-align:left;
+}
+
+.registerTextMedium {
+	color:white;
+	letter-spacing: -1px;
+	font-size: 35px;
+	margin-left: 30px;
+	text-align: center;
+	margin-bottom:5px;
+	margin-top: 5px;
 }
 
 .registerTextLarge {
@@ -357,6 +395,13 @@ textarea:focus, input:focus {
 
 
 .signinRegister {
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+
+.nameSigninREgister {
+	margin-top: 10px;
 	display:flex;
 	flex-direction:row;
 	justify-content:center;
@@ -640,6 +685,11 @@ select::-ms-expand {
 	text-align:center;
 }
 
+.nameForm {
+	font-size:16px;
+	text-align:center;
+}
+
 
 .registerFormContainerTwo {
 	font-size:16px;
@@ -680,6 +730,10 @@ p {
 
 input[type='checkbox'] {
 	margin-left: 20px;
+}
+
+input[type='file'] {
+	align-items: center;
 }
 
 .textContainer {
@@ -751,7 +805,26 @@ input[type='checkbox'] {
 	background:transparent;
 }
 
+.lastNameRegister {
+	font-family:inherit;
+	font-size:20px;
+	width:85%;
+	border:0;
+	outline:0;
+	background:transparent;
+}
+
 .usernameRegister {
+	font-family:inherit;
+	font-size:20px;
+	margin-top:40px;
+	width:85%;
+	border:0;
+	outline:0;
+	background:transparent;
+}
+
+.firstNameRegister {
 	font-family:inherit;
 	font-size:20px;
 	margin-top:40px;
