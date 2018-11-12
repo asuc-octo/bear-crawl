@@ -8,14 +8,15 @@ import FlashMessage from 'react-flash-message';
 import { Provider } from 'react-redux';
 import NameError from './NameError.jsx';
 import PasswordError from './PasswordError.jsx';
-import NameForm from './Components/Name/NameForm.jsx'
+import NameForm from './Components/Name/NameForm.jsx';
+import Home from './Home.jsx';
 
 const registerStyle = {
 	backgroundImage: `url(${Background})`, 
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<Provider store={store}><App /></Provider>,
+  ReactDOM.render(<Home />,
     document.body.appendChild(document.createElement('div'))
   )
 });

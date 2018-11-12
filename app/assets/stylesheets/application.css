@@ -17,13 +17,76 @@
 
  body {
  	font-family: 'Exo 2', sans-serif;
- 	overflow:hidden;
+	 overflow:hidden;
+	 margin: 0;
  }
 
  input, select, textarea{
     color:white !important;
 }
+
+nav {
+	width: 100%;
+	height: 50px;
+	background-color: rgb(36, 46, 70);
+	color: white;
+}
+
+nav a {
+	margin: 0;
+	float: right;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	padding-top: 20px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 14px;
+	text-decoration: none;
+	color: white;
+}
+
+nav a:hover {
+	animation: fillYellow 0.2s linear forwards;
+}
+
+
+.logo {
+	float: left;
+	font-family: inherit;
+	font-size: 25px;
+	letter-spacing: -2px;
+	padding-left: 40px;
+	padding-right: 40px;
+	margin-right: 10px;
+	margin-top: -14px;
+	color: white;
+}
+
+.yellowLogoText {
+	font-family: inherit;
+	font-size: 25px;
+	letter-spacing: -2px;
+	margin-top: -14px;
+	color: rgb(225, 127, 0);
+}
+
+.homeContainer {
+	max-width: 100%;
+	max-height: 100%;
+	background-image: linear-gradient(to bottom, rgb(17, 25, 51), rgb(0, 151, 196));
+}
+
+@keyframes fillYellow {
+	0% {
+		background-color: rgb(36, 46, 70);
+	}
+	100% {
+		background-color: rgb(9, 65, 104);
+	}
+}
 	
+
 @keyframes colorChange {
 	0% {
 		color: white;
