@@ -30,7 +30,7 @@ export default class App extends React.Component {
 	componentDidMount() {
 		this.subscription = store.subscribe(() => {
 			let {name, password} = store.getState();
-			if (name !== "" && password != "") {
+			if (name !== "" && password !== "") {
 				this.setState({phaseOneDone: true});
 			} else if (majors !== [] && interests !== []) {
 				this.setState({phaseTwoDone: true})

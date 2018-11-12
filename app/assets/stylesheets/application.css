@@ -678,6 +678,7 @@ select::-ms-expand {
 	border-radius:5px;
 	box-shadow: -2px 6px 65px -20px rgba(0,0,0,2);
 	margin-top:50px;
+	cursor: pointer;
 }
 
 .registerForm {
