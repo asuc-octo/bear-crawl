@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import HomeNavBar from './HomeNavBar.jsx';
 import Welcome from './Welcome.jsx';
 import Mission from './Mission.jsx';
+import Arrow from './Arrow.jsx';
+import HomeFooter from './HomeFooter.jsx';
 
 export default class Home extends React.Component {
     render() {
@@ -10,10 +12,9 @@ export default class Home extends React.Component {
             <div>
                 <HomeNavBar />
                 <Welcome />
-                <div className="arrow-down">
-                    <i className="fa fa-chevron-down"></i>
-                </div>
+                <Arrow />
                 <Mission />
+                <HomeFooter />
             </div>
         )
     }
