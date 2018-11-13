@@ -10,6 +10,9 @@ export default class Home extends React.Component {
             <div>
                 <HomeNavBar />
                 <Welcome />
+                <div className="arrow-down">
+                    <i className="fa fa-chevron-down"></i>
+                </div>
                 <Mission />
             </div>
         )
