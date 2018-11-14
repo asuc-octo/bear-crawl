@@ -10,8 +10,10 @@ export default class Mission extends React.Component {
                     <p className = 'ourMission'> Our Mission </p>
                 </div>
                 <div className = 'studentLifeContainer'>
-                    <img src = {Cover} height = '250' style = {{ position: 'absolute', left: 0}} />
+                    <img src = {Cover} height = '200' style = {{ position: 'absolute', left: 0}} />
                     <div className = 'yellowTrap'>  
+                        <div className = 'triangle-bottom'>  
+                        </div>
                         <div className = 'missionText'>
                             <p> To improve the student experience at UC Berkeley
                                 by connecting prospective members and great campus
