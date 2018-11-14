@@ -27,7 +27,7 @@
 }
 
 nav {
-	z-index: 1;
+	z-index: 9999;
 	width: 100%;
 	height: 50px;
 	background-color: rgb(36, 46, 70);
@@ -187,7 +187,7 @@ i:hover {
 	font-weight: 100;
 }
 
-.missionContainer {
+.middleTextContainer {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -211,7 +211,7 @@ i:hover {
 	border-bottom: 200px solid rgb(246, 166, 0);
 	border-left: 200px solid transparent;
 	position: absolute;
-	right: calc(100% - 40% + 200px);
+	left: calc(100% - 40% - 400px);
 }
 
 .missionText {
@@ -224,7 +224,7 @@ i:hover {
 	width: 100%;
 }
 
-.ourMission {
+.middleText {
 	font-size: 55px;
 	font-weight: 100;
 	color: white;
@@ -232,10 +232,24 @@ i:hover {
 	margin-top: 150px;
 }
 
+.middleProblemTextContainer {
+	position: static;
+	margin-top: 0px;
+	margin-left: 40px;
+	margin-right: 40px;
+	line-height: 1.7;
+	color: white;
+	font-weight: 100;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+}
+
+
 
 .studentLifeContainer {
 	position: relative;
-	z-index: 1;
 	display: inline-block;
 	height: 200px;
 	width: 100%;
@@ -244,6 +258,105 @@ i:hover {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+}
+
+
+
+.solutionTriangle {
+	width: 0;
+	height: 0;
+	border-top: 100px solid white;
+	border-left: 50vw solid transparent;
+	border-right: 50vw solid transparent;
+}
+
+.solutionText {
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: 55px;
+	font-weight: 100;
+	color: white;
+	letter-spacing: -2px;
+	margin-top: 100px;
+}
+
+.cmeContainer {
+	width: 100%;
+	height: 375px;
+	background-color: rgb(246, 166, 0) !important;
+	text-align: center;
+	position: relative;
+}
+
+.cmeText {
+	color: white;
+	margin-left: 80px;
+	margin-right: 80px;
+	line-height: 1.7;
+}
+
+.connectSolution {
+	position: relative;
+	font-size: 40px;
+	color: white;
+}
+
+.manageSolution {
+	margin-left: 165px;
+	margin-right: 165px;
+	position: relative;
+	font-size: 40px;
+	color: white;
+}
+
+.exploreSolution {
+	position: relative;
+	font-size: 40px;
+	color: white;
+}
+
+.iconContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.navIconText {
+	margin: 0px;
+	font-size: 13px;
+	color: white;
+}
+
+.navIconContainer  {
+	margin: 0px;
+	text-align: center;
+	line-height: 1.5;
+}
+
+.gearIconText {
+	margin: 0px;
+	font-size: 13px;
+	color: white;
+}
+
+.gearIconContainer  {
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+	line-height: 1.5;
+}
+
+.chainIconText {
+	margin: 0px;
+	font-size: 13px;
+	color: white;
+}
+
+.chainIconContainer  {
+	margin: 0px;
+	text-align: center;
+	line-height: 1.5;
 }
 
 .footer {

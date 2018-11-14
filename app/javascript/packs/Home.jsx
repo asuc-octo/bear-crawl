@@ -5,6 +5,9 @@ import Welcome from './Welcome.jsx';
 import Mission from './Mission.jsx';
 import Arrow from './Arrow.jsx';
 import HomeFooter from './HomeFooter.jsx';
+import Problem from './Problem.jsx';
+import Solution from './Solution.jsx';
+import Icon from './Icon.jsx';
 
 export default class Home extends React.Component {
     render() {
@@ -14,6 +17,9 @@ export default class Home extends React.Component {
                 <Welcome />
                 <Arrow />
                 <Mission />
+                <Problem />
+                <Solution />
+                <Icon />
                 <HomeFooter />
             </div>
         )

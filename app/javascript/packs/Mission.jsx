@@ -6,15 +6,15 @@ export default class Mission extends React.Component {
     render() {
         return (
             <div>
-                <div className = 'missionContainer'>
-                    <p className = 'ourMission'> Our Mission </p>
+                <div className = 'middleTextContainer'>
+                    <p className = 'middleText'> Our Mission </p>
                 </div>
                 <div className = 'studentLifeContainer'>
                     <img src = {Cover} height = '200' style = {{ position: 'absolute', left: 0}} />
                     <div className = 'yellowTrap'>  
-                        <div className = 'triangle-bottom'>  
-                        </div>
                         <div className = 'missionText'>
+                            <div className = 'triangle-bottom'>  
+                            </div>
                             <p> To improve the student experience at UC Berkeley
                                 by connecting prospective members and great campus
                                 organizations and enabling simple, effective management features.
