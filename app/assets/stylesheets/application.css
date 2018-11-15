@@ -203,6 +203,7 @@ i:hover {
 	overflow-x: none;
 	position: absolute;
 	height: 200px;
+	z-index: 0;
 }
 
 .triangle-bottom {
@@ -211,7 +212,7 @@ i:hover {
 	border-bottom: 200px solid rgb(246, 166, 0);
 	border-left: 200px solid transparent;
 	position: absolute;
-	left: calc(100% - 40% - 400px);
+	right: calc(60%);
 }
 
 .missionText {
@@ -258,6 +259,7 @@ i:hover {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+	z-index: -5;
 }
 
 
@@ -265,7 +267,7 @@ i:hover {
 .solutionTriangle {
 	width: 0;
 	height: 0;
-	border-top: 100px solid rgb(233, 156, 15);
+	border-top: 100px solid rgb(19, 86, 125);
 	border-left: 50vw solid transparent;
 	border-right: 50vw solid transparent;
 }
@@ -287,6 +289,7 @@ i:hover {
 	background-color: rgb(246, 166, 0) !important;
 	text-align: center;
 	position: relative;
+	z-index: -5;
 }
 
 .cmeText {
@@ -625,6 +628,14 @@ textarea:focus, input:focus {
  	margin-top:80px;
  	position: static;
  	font-size: 15px;
+ }
+
+ .fa .fa-chevron-down {
+ 	z-index: -5;
+ }
+
+.arrow-down {
+ 	z-index: -5;
  }
 
  .faceUploadInput {
