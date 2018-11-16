@@ -22,6 +22,8 @@ class Club < ApplicationRecord
 
   has_many :interests, as: :interestable, dependent: :destroy
 
+  scope :find_categories, -> (query) {joins(:categories).where(categories: {label: query})}
+
   def as_indexed_json(options = {})
     self.as_json(
       only: [:name],
