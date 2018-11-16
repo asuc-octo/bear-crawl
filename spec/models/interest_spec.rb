@@ -29,7 +29,8 @@ RSpec.describe Interest, type: :model do
       int_1 = create(:interest, label: "int1", interestable: club)
       int_2 = create(:interest, label: "int2", interestable: club)
       expect(club.interests.count).to eq(2)
-      expect(club.interests).to eq([int_2, int_1])
+#      binding.pry
+      expect(club.interests.all).to eq([int_2, int_1])
     end
   end
 end

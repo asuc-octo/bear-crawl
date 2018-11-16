@@ -17,6 +17,8 @@ RSpec.describe Membership, type: :model do
     end
 
     it "throws an error if a student tries to join a club twice" do
+#      create(:membership, student: student1, club:club1)
+#      binding.pry
       expect{create(:membership, student: student1, club:club1)}.to raise_error(ActiveRecord::RecordNotUnique)
     end
   end

@@ -7,7 +7,8 @@ RSpec.describe Keyword, type: :model do
     it "creates a keyword for the club" do
       create(:keyword, label: "finance", club: club)
       expect(club.keywords.count).to eq(1)
-      expect(club.keywords.first.label).to eq("finance")
+#      binding.pry
+      expect(club.keywords.all.first.label).to eq("finance")
     end
     
     it "creates multiple keywords for the club" do
