@@ -47,7 +47,7 @@ class Club < ApplicationRecord
         fields: ['name', 'categories.label', 'keywords.label', 'interests.label']
         }
       }
-    ).results
+    )
   end
 
 
