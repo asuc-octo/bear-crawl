@@ -202,16 +202,20 @@ i:hover {
 	left: calc(100% - 50%);
 	transform: skewX(-45deg);
 	overflow-x: none;
-	position: absolute;
+	position: relative;
+	background-color: rgb(246, 166, 0);
 	height: 200px;
-	width: 1000px;
-	z-index: 0;
+	width: 1100px;
+	z-index: 1000;
 }
 
 
 .missionText {
-	height: 200px;
-	background-color: rgb(246, 166, 0);
+	position: relative;
+	transform: skewX(45deg);
+	text-align:right;
+	margin-right: 190px;
+	padding-top: 40px;
 }
 
 .homeNavContainer {
