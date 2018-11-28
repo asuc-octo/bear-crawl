@@ -199,21 +199,15 @@ i:hover {
 	font-size: 22px;
 	color: rgb(21, 25, 40);
 	width: 40%;
-	left: calc(100% - 40%);
+	left: calc(100% - 50%);
+	transform: skewX(-45deg);
 	overflow-x: none;
 	position: absolute;
 	height: 200px;
+	width: 1000px;
 	z-index: 0;
 }
 
-.triangle-bottom {
-	width: 0;
-	height: 0;
-	border-bottom: 200px solid rgb(246, 166, 0);
-	border-left: 200px solid transparent;
-	position: absolute;
-	right: calc(60%);
-}
 
 .missionText {
 	height: 200px;
